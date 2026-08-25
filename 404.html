@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>404 · Page Not Found · Glow Haven</title>
+   <link rel="icon" type="image/jpeg" href="images/story.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    :root {
+      --accent: #b38b6d;
+      --accent-hover: #9a7659;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background:
+        linear-gradient(rgba(45, 42, 36, 0.85), rgba(45, 42, 36, 0.85)),
+        url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1600&q=80') center/cover no-repeat;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+      padding: 40px;
+      max-width: 700px;
+    }
+
+    /* ===== 404 NUMBER ===== */
+    .error {
+      font-size: 180px;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+      text-shadow: 0 10px 30px rgba(179, 139, 109, 0.4);
+      letter-spacing: -5px;
+    }
+
+    .error span {
+      color: #fff;
+    }
+
+    /* ===== HEADING ===== */
+    h2 {
+      color: #fff;
+      font-size: 42px;
+      font-weight: 700;
+      margin: 20px 0 10px;
+      letter-spacing: -0.5px;
+    }
+
+    h2 span {
+      color: var(--accent);
+    }
+
+    /* ===== DESCRIPTION ===== */
+    p {
+      color: #dcdcdc;
+      font-size: 18px;
+      line-height: 1.8;
+      margin-bottom: 40px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ===== BUTTON ===== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 38px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      border-radius: 50px;
+      transition: 0.35s;
+      box-shadow: 0 10px 25px rgba(179, 139, 109, 0.35);
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #fff;
+      color: var(--accent);
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(179, 139, 109, 0.4);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .error {
+        font-size: 120px;
+      }
+
+      h2 {
+        font-size: 30px;
+      }
+
+      p {
+        font-size: 16px;
+        padding: 0 15px;
+      }
+
+      .btn {
+        padding: 14px 28px;
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .error {
+        font-size: 80px;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+
+      .btn {
+        padding: 12px 24px;
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- ===== 404 NUMBER ===== -->
+    <div class="error">
+      4<span>0</span>4
+    </div>
+
+    <!-- ===== HEADING ===== -->
+    <h2>Page Not <span>Found</span></h2>
+
+    <!-- ===== DESCRIPTION ===== -->
+    <p>
+      Oops! The page you're looking for doesn't exist or may have been moved.
+      Let's get you back on your glow journey.
+    </p>
+
+    <!-- ===== BACK TO HOME BUTTON ===== -->
+    <a href="index.html" class="btn">
+      <i class="fas fa-home"></i> Back to Home
+    </a>
+
+  </div>
+
+</body>
+</html>

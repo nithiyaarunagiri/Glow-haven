@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>Login · Glow Haven</title>
+   <link rel="icon" type="image/jpeg" href="images/story.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ===== RESET & BASE ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-primary: #ffffff;
+      --bg-secondary: #ffffff;
+      --bg-dark: #2d2a24;
+      --text-primary: #2d2a24;
+      --text-secondary: #5f5349;
+      --text-light: #e8e0d8;
+      --border-color: #e8e0d8;
+      --accent: #b38b6d;
+      --accent-light: #d4b8a0;
+      --shadow: rgba(0, 0, 0, 0.08);
+      --card-bg: #ffffff;
+      --transition: 0.3s ease;
+      --section-bg: #faf7f2;
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #1a1815;
+      --bg-secondary: #2d2a24;
+      --text-primary: #f0ebe5;
+      --text-secondary: #c4b8ae;
+      --text-light: #5f5349;
+      --border-color: #3a352e;
+      --shadow: rgba(0, 0, 0, 0.3);
+      --card-bg: #2d2a24;
+      --section-bg: #1a1815;
+    }
+
+    [dir="rtl"] {
+      text-align: right;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--section-bg);
+      color: var(--text-primary);
+      line-height: 1.5;
+      transition: background var(--transition), color var(--transition);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    /* ===== LOGIN CONTAINER ===== */
+    .login-container {
+      width: 100%;
+      max-width: 340px;
+    }
+
+    /* ===== TOP BAR - ONLY TOGGLES ===== */
+    .login-top {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin-bottom: 0.6rem;
+    }
+
+    .login-top .top-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .login-top .top-controls .toggle-btn {
+      background: none;
+      border: 1px solid var(--border-color);
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--text-primary);
+      font-size: 0.7rem;
+      transition: all 0.2s;
+      background: var(--bg-secondary);
+    }
+
+    .login-top .top-controls .toggle-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .login-top .top-controls .toggle-btn.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .login-top .top-controls .rtl-btn {
+      background: none;
+      border: 1px solid var(--border-color);
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--text-primary);
+      font-size: 0.55rem;
+      font-weight: 600;
+      transition: all 0.2s;
+      background: var(--bg-secondary);
+      font-family: 'Inter', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .login-top .top-controls .rtl-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .login-top .top-controls .rtl-btn.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    /* ===== LOGIN CARD ===== */
+    .login-card {
+      background: var(--card-bg);
+      border-radius: 18px;
+      padding: 1.2rem 1.2rem 1.5rem;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 10px 32px var(--shadow);
+    }
+
+    .login-card .logo-center {
+      text-align: center;
+      margin-bottom: 0.8rem;
+    }
+
+    .login-card .logo-center .brand-logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: var(--text-primary);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .login-card .logo-center .brand-logo span {
+      color: var(--accent);
+      font-weight: 300;
+    }
+
+    .login-card .logo-center .brand-logo i {
+      color: var(--accent);
+      font-size: 1.3rem;
+    }
+
+    .login-card .logo-center .sub-text {
+      font-size: 0.7rem;
+      color: var(--text-secondary);
+      margin-top: 0.1rem;
+    }
+
+    /* ===== FORM - ALL INPUTS WORKING ===== */
+    .login-card .form-group {
+      margin-bottom: 0.6rem;
+    }
+
+    .login-card .form-group label {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.15rem;
+    }
+
+    /* Email Input - Fixed */
+    .login-card .form-group input[type="email"] {
+      width: 100%;
+      padding: 0.5rem 0.8rem;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      transition: 0.2s;
+    }
+
+    .login-card .form-group input[type="email"]:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(179, 139, 109, 0.1);
+    }
+
+    /* ===== PASSWORD WRAPPER ===== */
+    .login-card .form-group .password-wrapper {
+      position: relative;
+    }
+
+    .login-card .form-group .password-wrapper input[type="password"],
+    .login-card .form-group .password-wrapper input[type="text"] {
+      width: 100%;
+      padding: 0.5rem 2.2rem 0.5rem 0.8rem;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      transition: 0.2s;
+    }
+
+    .login-card .form-group .password-wrapper input[type="password"]:focus,
+    .login-card .form-group .password-wrapper input[type="text"]:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(179, 139, 109, 0.1);
+    }
+
+    .login-card .form-group .password-wrapper .toggle-password {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--text-secondary);
+      cursor: pointer;
+      font-size: 0.9rem;
+      padding: 0;
+      transition: 0.2s;
+    }
+
+    [dir="rtl"] .login-card .form-group .password-wrapper .toggle-password {
+      right: auto;
+      left: 10px;
+    }
+
+    .login-card .form-group .password-wrapper .toggle-password:hover {
+      color: var(--accent);
+    }
+
+    /* ===== FORM OPTIONS ===== */
+    .login-card .form-options {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0.4rem 0 0.8rem;
+      font-size: 0.7rem;
+    }
+
+    .login-card .form-options .remember {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      color: var(--text-secondary);
+      cursor: pointer;
+    }
+
+    .login-card .form-options .remember input[type="checkbox"] {
+      accent-color: var(--accent);
+      width: 14px;
+      height: 14px;
+      cursor: pointer;
+    }
+
+    .login-card .form-options .forgot {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.7rem;
+    }
+
+    .login-card .form-options .forgot:hover {
+      text-decoration: underline;
+    }
+
+    .login-card .btn-login {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 0.6rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: 0.25s;
+      width: 100%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .login-card .btn-login:hover {
+      background: #9a7659;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(179, 139, 109, 0.3);
+    }
+
+    .login-card .signup-link {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    .login-card .signup-link a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .login-card .signup-link a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== OR DIVIDER ===== */
+    .login-card .divider {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin: 1rem 0;
+    }
+
+    .login-card .divider .line {
+      flex: 1;
+      height: 1px;
+      background: var(--border-color);
+    }
+
+    .login-card .divider .text {
+      font-size: 0.7rem;
+      color: var(--text-secondary);
+      white-space: nowrap;
+    }
+
+    /* ===== SOCIAL LOGIN ===== */
+    .login-card .social-login {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.6rem;
+    }
+
+    .login-card .social-login .btn-social {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 0.5rem 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: 0.25s ease;
+      font-family: 'Inter', sans-serif;
+      text-decoration: none;
+    }
+
+    .login-card .social-login .btn-social:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(179, 139, 109, 0.15);
+    }
+
+    /* ===== ORIGINAL GOOGLE LOGO ===== */
+    .login-card .social-login .btn-social .google-logo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    .login-card .social-login .btn-social .google-logo svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* Google Button */
+    .login-card .social-login .btn-social.google {
+      background: #ffffff;
+      border-color: #dadce0;
+      color: #3c4043;
+    }
+
+    .login-card .social-login .btn-social.google:hover {
+      background: #f8f9fa;
+      border-color: #dadce0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Apple Button */
+    .login-card .social-login .btn-social.apple {
+      background: #000000;
+      border-color: #000000;
+      color: #ffffff;
+    }
+
+    .login-card .social-login .btn-social.apple i {
+      font-size: 1.1rem;
+      color: #ffffff;
+    }
+
+    .login-card .social-login .btn-social.apple:hover {
+      background: #333333;
+      border-color: #333333;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Dark mode - Google */
+    [data-theme="dark"] .login-card .social-login .btn-social.google {
+      background: #2d2d2d;
+      border-color: #3d3d3d;
+      color: #ffffff;
+    }
+
+    [data-theme="dark"] .login-card .social-login .btn-social.google:hover {
+      background: #3d3d3d;
+      border-color: #4d4d4d;
+    }
+
+    /* Dark mode - Apple */
+    [data-theme="dark"] .login-card .social-login .btn-social.apple {
+      background: #ffffff;
+      border-color: #ffffff;
+      color: #000000;
+    }
+
+    [data-theme="dark"] .login-card .social-login .btn-social.apple i {
+      color: #000000;
+    }
+
+    [data-theme="dark"] .login-card .social-login .btn-social.apple:hover {
+      background: #e5e5e5;
+      border-color: #e5e5e5;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 480px) {
+      .login-card {
+        padding: 1rem 1rem 1.2rem;
+        border-radius: 16px;
+      }
+
+      .login-card .logo-center .brand-logo {
+        font-size: 1.4rem;
+      }
+
+      .login-card .logo-center .brand-logo i {
+        font-size: 1.1rem;
+      }
+
+      .login-top .top-controls .toggle-btn,
+      .login-top .top-controls .rtl-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 0.5rem;
+      }
+
+      .login-card .social-login {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+      }
+
+      .login-card .social-login .btn-social {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.7rem;
+      }
+
+      .login-card .social-login .btn-social .google-logo {
+        width: 16px;
+        height: 16px;
+      }
+
+      .login-card .social-login .btn-social .google-logo svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      .login-card .social-login .btn-social.apple i {
+        font-size: 1rem;
+      }
+
+      .login-card .form-options {
+        flex-direction: column;
+        gap: 0.3rem;
+        align-items: flex-start;
+      }
+
+      .login-card .form-group input[type="email"] {
+        padding: 0.45rem 0.7rem;
+        font-size: 0.75rem;
+      }
+
+      .login-card .form-group .password-wrapper input[type="password"],
+      .login-card .form-group .password-wrapper input[type="text"] {
+        padding: 0.45rem 2rem 0.45rem 0.7rem;
+        font-size: 0.75rem;
+      }
+
+      .login-card .btn-login {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+      }
+
+      .login-container {
+        max-width: 100%;
+        padding: 0 0.5rem;
+      }
+
+      .login-card .signup-link {
+        font-size: 0.75rem;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .login-card {
+        padding: 0.8rem 0.8rem 1rem;
+        border-radius: 14px;
+      }
+
+      .login-card .logo-center .brand-logo {
+        font-size: 1.2rem;
+      }
+
+      .login-card .logo-center .brand-logo i {
+        font-size: 1rem;
+      }
+
+      .login-top .top-controls .toggle-btn,
+      .login-top .top-controls .rtl-btn {
+        width: 24px;
+        height: 24px;
+        font-size: 0.45rem;
+      }
+
+      .login-card .social-login {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.4rem;
+      }
+
+      .login-card .social-login .btn-social {
+        padding: 0.3rem 0.5rem;
+        font-size: 0.65rem;
+      }
+
+      .login-card .social-login .btn-social .google-logo {
+        width: 14px;
+        height: 14px;
+      }
+
+      .login-card .social-login .btn-social .google-logo svg {
+        width: 14px;
+        height: 14px;
+      }
+
+      .login-card .social-login .btn-social.apple i {
+        font-size: 0.9rem;
+      }
+
+      .login-card .form-group input[type="email"] {
+        padding: 0.35rem 0.6rem;
+        font-size: 0.7rem;
+      }
+
+      .login-card .form-group .password-wrapper input[type="password"],
+      .login-card .form-group .password-wrapper input[type="text"] {
+        padding: 0.35rem 1.8rem 0.35rem 0.6rem;
+        font-size: 0.7rem;
+      }
+
+      .login-card .form-group .password-wrapper .toggle-password {
+        font-size: 0.8rem;
+        right: 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <!-- ===== TOP BAR - ONLY TOGGLES ===== -->
+    <div class="login-top">
+      <div class="top-controls">
+        <button class="rtl-btn" onclick="toggleRTL()" id="rtlBtn">RTL</button>
+        <button class="toggle-btn" onclick="toggleTheme()" title="Toggle Dark/Light Mode" id="themeToggle">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- ===== LOGIN CARD ===== -->
+    <div class="login-card">
+      <!-- Logo Center -->
+      <div class="logo-center">
+        <a href="index.html" class="brand-logo">
+          <i class="fas fa-spa"></i>Glow<span>haven</span>
+        </a>
+        <p class="sub-text">Sign in to your account</p>
+      </div>
+
+      <form id="loginForm" onsubmit="handleLogin(event)">
+        <!-- Email Input -->
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="Enter your email" required>
+        </div>
+
+        <!-- Password Input with Eye Icon -->
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="password-wrapper">
+            <input type="password" id="password" placeholder="Enter your password" required>
+            <button type="button" class="toggle-password" onclick="togglePasswordVisibility('password')">
+              <i class="fas fa-eye"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="form-options">
+          <label class="remember">
+            <input type="checkbox"> Remember me
+          </label>
+          <a href="#" class="forgot">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn-login">
+          <i class="fas fa-sign-in-alt"></i> Sign In
+        </button>
+      </form>
+
+      <div class="signup-link">
+        Don't have an account? <a href="signup.html">Create one</a>
+      </div>
+
+      <div class="divider">
+        <span class="line"></span>
+        <span class="text">or continue with</span>
+        <span class="line"></span>
+      </div>
+
+      <div class="social-login">
+        <!-- Google Button -->
+        <a href="#" class="btn-social google">
+          <span class="google-logo">
+            <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+              <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+              <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+              <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+              <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+            </svg>
+          </span>
+          Google
+        </a>
+
+        <!-- Apple Button -->
+        <a href="#" class="btn-social apple">
+          <i class="fab fa-apple"></i>
+          Apple
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    // ===== THEME TOGGLE =====
+    let darkMode = false;
+
+    function toggleTheme() {
+      darkMode = !darkMode;
+      const themeIcon = document.getElementById('themeToggle').querySelector('i');
+      if (darkMode) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        themeIcon.className = 'fas fa-sun';
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+        themeIcon.className = 'fas fa-moon';
+      }
+    }
+
+    // ===== RTL TOGGLE =====
+    let rtlMode = false;
+
+    function toggleRTL() {
+      rtlMode = !rtlMode;
+      const rtlBtn = document.getElementById('rtlBtn');
+      if (rtlMode) {
+        document.documentElement.setAttribute('dir', 'rtl');
+        rtlBtn.classList.add('active');
+        rtlBtn.textContent = 'LTR';
+      } else {
+        document.documentElement.removeAttribute('dir');
+        rtlBtn.classList.remove('active');
+        rtlBtn.textContent = 'RTL';
+      }
+    }
+
+    // ===== TOGGLE PASSWORD VISIBILITY =====
+    function togglePasswordVisibility(fieldId) {
+      const input = document.getElementById(fieldId);
+      const icon = input.parentElement.querySelector('.toggle-password i');
+      
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon.className = 'fas fa-eye-slash';
+      } else {
+        input.type = 'password';
+        icon.className = 'fas fa-eye';
+      }
+    }
+
+    // ===== LOGIN FORM HANDLER =====
+    function handleLogin(e) {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      if (email && password) {
+        window.location.href = 'index.html';
+      } else {
+        alert('⚠️ Please fill in all fields.');
+      }
+    }
+
+    // ===== RUN ON LOAD =====
+    window.addEventListener('load', function() {
+      if (document.documentElement.getAttribute('data-theme') === 'dark') {
+        document.getElementById('themeToggle').querySelector('i').className = 'fas fa-sun';
+      }
+    });
+  </script>
+</body>
+</html>

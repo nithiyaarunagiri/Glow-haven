@@ -1,0 +1,2168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>FAQ · Glow Haven</title>
+   <link rel="icon" type="image/jpeg" href="images/story.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ===== RESET & BASE ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-primary: #ffffff;
+      --bg-secondary: #ffffff;
+      --bg-dark: #2d2a24;
+      --text-primary: #2d2a24;
+      --text-secondary: #5f5349;
+      --text-light: #e8e0d8;
+      --border-color: #e8e0d8;
+      --accent: #b38b6d;
+      --accent-light: #d4b8a0;
+      --shadow: rgba(0, 0, 0, 0.06);
+      --card-bg: #ffffff;
+      --section-bg: #faf7f2;
+      --transition: 0.3s ease;
+      --hero-overlay: rgba(0, 0, 0, 0.4);
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #1a1815;
+      --bg-secondary: #2d2a24;
+      --text-primary: #f0ebe5;
+      --text-secondary: #c4b8ae;
+      --text-light: #5f5349;
+      --border-color: #3a352e;
+      --shadow: rgba(0, 0, 0, 0.3);
+      --card-bg: #2d2a24;
+      --section-bg: #1a1815;
+      --hero-overlay: rgba(0, 0, 0, 0.6);
+    }
+
+    [dir="rtl"] {
+      text-align: right;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      transition: background var(--transition), color var(--transition);
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ===== NAVBAR - DESKTOP UNCHANGED ===== */
+    .navbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+      background: #E8D2B8;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: background var(--transition), border-color var(--transition);
+    }
+
+    .logo,
+    .footer-logo-link {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: var(--text-primary);
+      text-decoration: none;
+      transition: color var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .logo span,
+    .footer-logo-link span {
+      color: var(--accent);
+      font-weight: 300;
+    }
+
+    .logo i,
+    .footer-logo-link i {
+      color: var(--accent);
+      font-size: 1.7rem;
+    }
+
+    [data-theme="dark"] .logo,
+    [data-theme="dark"] .footer-logo-link {
+      color: #f1c77f;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      list-style: none;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-primary);
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .dropdown {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .dropdown>a {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background: var(--bg-secondary);
+      min-width: 140px;
+      box-shadow: 0 12px 24px var(--shadow);
+      border-radius: 12px;
+      padding: 0.6rem 0;
+      top: 1.8rem;
+      left: -10px;
+      z-index: 10;
+      border: 1px solid var(--border-color);
+      opacity: 0;
+      transform: translateY(-8px);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    [dir="rtl"] .dropdown-content {
+      left: auto;
+      right: -10px;
+    }
+
+    .dropdown-content.show {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 0.5rem 1.5rem;
+      color: var(--text-primary);
+      font-weight: 400;
+      text-decoration: none;
+    }
+
+    .dropdown-content a:hover {
+      background: var(--bg-primary);
+      color: var(--accent);
+    }
+
+    .nav-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .nav-controls .toggle-btn {
+      background: none;
+      border: 1px solid var(--border-color);
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--text-primary);
+      font-size: 0.7rem;
+      font-weight: 600;
+      transition: all 0.2s;
+      background: var(--bg-secondary);
+      font-family: 'Inter', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-controls .toggle-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .nav-controls .toggle-btn.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .nav-controls .login-btn {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1.2rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: 0.2s;
+      text-decoration: none;
+    }
+
+    .nav-controls .login-btn:hover {
+      background: var(--text-primary);
+      transform: translateY(-2px);
+    }
+
+    .nav-controls .signup-btn {
+      background: transparent;
+      color: var(--text-primary);
+      border: 2px solid var(--border-color);
+      padding: 0.45rem 1.2rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: 0.2s;
+      text-decoration: none;
+    }
+
+    .nav-controls .signup-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .nav-links a.active {
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+    }
+
+    .dropdown-content a.active-drop {
+      color: var(--accent);
+      background: var(--bg-primary);
+    }
+
+    [data-theme="dark"] .navbar {
+      background: #000000 !important;
+      border-bottom: 1px solid #222222 !important;
+    }
+
+    [data-theme="dark"] .navbar .nav-links a {
+      color: #ffffff !important;
+    }
+
+    [data-theme="dark"] .navbar .logo {
+      color: var(--text-primary) !important;
+    }
+
+    [data-theme="dark"] .navbar .logo span {
+      color: var(--accent) !important;
+    }
+
+    [data-theme="dark"] .navbar .logo i {
+      color: var(--accent) !important;
+    }
+
+    /* ============================================================ */
+    /* ===== SECTION 1: FAQ HERO - FULLY RESPONSIVE ===== */
+    /* ============================================================ */
+
+    .faq-hero {
+      width: 100%;
+      padding: 3.5rem 0;
+      background: var(--section-bg);
+      transition: background var(--transition);
+      display: flex;
+      align-items: center;
+      min-height: 50vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .faq-hero::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      right: -5%;
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, var(--accent-light), transparent 70%);
+      opacity: 0.12;
+      border-radius: 50%;
+      z-index: 0;
+    }
+
+    .faq-hero .hero-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .faq-hero .hero-left .hero-badge {
+      background: var(--accent);
+      color: #fff;
+      padding: 0.25rem 1.2rem;
+      border-radius: 60px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: 0.8rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .faq-hero .hero-left h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+
+    .faq-hero .hero-left h1 span {
+      color: var(--accent);
+    }
+
+    .faq-hero .hero-left p {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 480px;
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+
+    .faq-hero .hero-left .hero-search {
+      display: flex;
+      max-width: 450px;
+      background: var(--card-bg);
+      border-radius: 60px;
+      border: 1px solid var(--border-color);
+      overflow: hidden;
+      box-shadow: 0 4px 16px var(--shadow);
+    }
+
+    .faq-hero .hero-left .hero-search input {
+      flex: 1;
+      padding: 0.8rem 1.2rem;
+      border: none;
+      outline: none;
+      font-size: 0.9rem;
+      font-family: 'Inter', sans-serif;
+      background: transparent;
+      color: var(--text-primary);
+    }
+
+    .faq-hero .hero-left .hero-search button {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 0.8rem 1.8rem;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .faq-hero .hero-left .hero-search button:hover {
+      background: #9a7659;
+    }
+
+    .faq-hero .hero-right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .faq-hero .hero-right .hero-image {
+      width: 100%;
+      max-width: 400px;
+      height: 300px;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 12px 32px var(--shadow);
+    }
+
+    .faq-hero .hero-right .hero-image img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* FAQ Hero - Responsive */
+    @media (max-width: 1024px) and (min-width: 768px) {
+      .faq-hero {
+        padding: 2.5rem 0;
+        min-height: 40vh;
+      }
+
+      .faq-hero .hero-wrapper {
+        gap: 2rem;
+      }
+
+      .faq-hero .hero-left h1 {
+        font-size: 2.6rem;
+      }
+
+      .faq-hero .hero-left p {
+        font-size: 0.95rem;
+        max-width: 100%;
+      }
+
+      .faq-hero .hero-right .hero-image {
+        height: 250px;
+        max-width: 100%;
+      }
+
+      .faq-hero .hero-left .hero-search {
+        max-width: 100%;
+      }
+
+      .faq-hero .hero-left .hero-search input {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+      }
+
+      .faq-hero .hero-left .hero-search button {
+        padding: 0.6rem 1.4rem;
+        font-size: 0.85rem;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .faq-hero {
+        padding: 2rem 0;
+        min-height: 35vh;
+      }
+
+      .faq-hero .hero-wrapper {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        text-align: center;
+      }
+
+      .faq-hero .hero-left p {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 100%;
+        font-size: 0.9rem;
+        padding: 0 0.5rem;
+      }
+
+      .faq-hero .hero-left h1 {
+        font-size: 2.2rem;
+      }
+
+      .faq-hero .hero-badge {
+        font-size: 0.6rem;
+        padding: 0.2rem 0.8rem;
+      }
+
+      .faq-hero .hero-left .hero-search {
+        max-width: 100%;
+        margin: 0 auto;
+        border-radius: 50px;
+      }
+
+      .faq-hero .hero-left .hero-search input {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+      }
+
+      .faq-hero .hero-left .hero-search button {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.85rem;
+      }
+
+      .faq-hero .hero-right .hero-image {
+        max-width: 100%;
+        height: 220px;
+        border-radius: 18px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .faq-hero {
+        padding: 1.5rem 0;
+        min-height: 30vh;
+      }
+
+      .faq-hero .hero-left h1 {
+        font-size: 1.8rem;
+      }
+
+      .faq-hero .hero-badge {
+        font-size: 0.55rem;
+        padding: 0.15rem 0.8rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .faq-hero .hero-left p {
+        font-size: 0.85rem;
+        padding: 0 0.3rem;
+        margin-bottom: 1rem;
+      }
+
+      .faq-hero .hero-left .hero-search {
+        flex-direction: column;
+        border-radius: 16px;
+      }
+
+      .faq-hero .hero-left .hero-search input {
+        padding: 0.6rem 1rem;
+        border-radius: 16px 16px 0 0;
+        border-bottom: 1px solid var(--border-color);
+        font-size: 0.8rem;
+      }
+
+      .faq-hero .hero-left .hero-search button {
+        border-radius: 0 0 16px 16px;
+        width: 100%;
+        justify-content: center;
+        padding: 0.6rem 1rem;
+        font-size: 0.8rem;
+      }
+
+      .faq-hero .hero-right .hero-image {
+        height: 170px;
+        border-radius: 14px;
+      }
+    }
+
+    /* ============================================================ */
+    /* ===== SECTION 2: FAQ ACCORDION ===== */
+    /* ============================================================ */
+
+    .faq-accordion-section {
+      background: var(--bg-primary);
+      padding: 4rem 0 3.5rem;
+      transition: background var(--transition);
+    }
+
+    .faq-accordion {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .faq-item {
+      background: var(--card-bg);
+      border-radius: 16px;
+      border: 1px solid var(--border-color);
+      overflow: hidden;
+      transition: 0.3s ease;
+    }
+
+    .faq-item:hover {
+      border-color: var(--accent-light);
+    }
+
+    .faq-item.active {
+      border-color: var(--accent);
+      box-shadow: 0 4px 20px var(--shadow);
+    }
+
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 1.8rem;
+      cursor: pointer;
+      transition: 0.2s;
+      gap: 1rem;
+    }
+
+    .faq-question:hover {
+      background: var(--section-bg);
+    }
+
+    .faq-question h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .faq-question .icon {
+      font-size: 1.2rem;
+      color: var(--accent);
+      transition: 0.3s;
+      flex-shrink: 0;
+    }
+
+    .faq-item.active .faq-question .icon {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 300px;
+    }
+
+    .faq-answer p {
+      padding: 0 1.8rem 1.5rem;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* FAQ Accordion - Responsive */
+    @media (max-width: 767px) {
+      .faq-accordion-section {
+        padding: 2.5rem 0 2rem;
+      }
+
+      .faq-accordion {
+        gap: 0.8rem;
+      }
+
+      .faq-item {
+        border-radius: 12px;
+      }
+
+      .faq-question {
+        padding: 1rem 1.2rem;
+      }
+
+      .faq-question h3 {
+        font-size: 0.9rem;
+      }
+
+      .faq-answer p {
+        padding: 0 1.2rem 1.2rem;
+        font-size: 0.85rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .faq-question {
+        padding: 0.8rem 1rem;
+      }
+
+      .faq-question h3 {
+        font-size: 0.85rem;
+      }
+
+      .faq-answer p {
+        padding: 0 1rem 1rem;
+        font-size: 0.8rem;
+      }
+
+      .faq-question .icon {
+        font-size: 1rem;
+      }
+    }
+
+    /* ============================================================ */
+    /* ===== SECTION 3: FAQ GRID ===== */
+    /* ============================================================ */
+
+    .faq-grid-section {
+      background: var(--section-bg);
+      padding: 4rem 0 3.5rem;
+      transition: background var(--transition);
+    }
+
+    .faq-grid-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .faq-grid-item {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 1.5rem 1.8rem;
+      border: 1px solid var(--border-color);
+      transition: 0.35s ease;
+    }
+
+    .faq-grid-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px var(--shadow);
+      border-color: var(--accent);
+    }
+
+    .faq-grid-item .q {
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .faq-grid-item h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin: 0.3rem 0 0.5rem;
+    }
+
+    .faq-grid-item p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* FAQ Grid - Responsive */
+    @media (max-width: 992px) {
+      .faq-grid-container {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+        gap: 1.2rem;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .faq-grid-section {
+        padding: 2.5rem 0 2rem;
+      }
+
+      .faq-grid-container {
+        gap: 1rem;
+      }
+
+      .faq-grid-item {
+        padding: 1.2rem 1rem;
+        border-radius: 12px;
+      }
+
+      .faq-grid-item h4 {
+        font-size: 0.95rem;
+        margin: 0.2rem 0 0.4rem;
+      }
+
+      .faq-grid-item p {
+        font-size: 0.85rem;
+      }
+
+      .faq-grid-item .q {
+        font-size: 0.7rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .faq-grid-item {
+        padding: 1rem 0.8rem;
+        border-radius: 10px;
+      }
+
+      .faq-grid-item h4 {
+        font-size: 0.85rem;
+      }
+
+      .faq-grid-item p {
+        font-size: 0.8rem;
+      }
+    }
+
+    /* ============================================================ */
+    /* ===== SECTION TITLE ===== */
+    /* ============================================================ */
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      text-align: center;
+      color: var(--text-primary);
+    }
+
+    .section-title i {
+      color: var(--accent);
+      margin-right: 10px;
+    }
+
+    .section-subtitle {
+      color: var(--text-secondary);
+      margin-bottom: 2.5rem;
+      font-size: 1.05rem;
+      text-align: center;
+    }
+
+    @media (max-width: 767px) {
+      .section-title {
+        font-size: 1.7rem;
+      }
+
+      .section-subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 1.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .section-title {
+        font-size: 1.4rem;
+      }
+
+      .section-subtitle {
+        font-size: 0.85rem;
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    /* ============================================================ */
+    /* ===== SECTION 4: CTA ===== */
+    /* ============================================================ */
+
+    .faq-cta-section {
+      background: var(--bg-primary);
+      padding: 4rem 0;
+      transition: background var(--transition);
+    }
+
+    .faq-cta-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      background: var(--card-bg);
+      border-radius: 28px;
+      padding: 3.5rem 3rem;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 8px 30px var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .faq-cta-wrapper::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -20%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, var(--accent-light), transparent 70%);
+      opacity: 0.1;
+      border-radius: 50%;
+    }
+
+    .faq-cta-wrapper .icon-big {
+      font-size: 3rem;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .faq-cta-wrapper h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .faq-cta-wrapper p {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      max-width: 500px;
+      margin: 0 auto 1.8rem;
+      line-height: 1.7;
+      position: relative;
+      z-index: 1;
+    }
+
+    .faq-cta-wrapper .cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .faq-cta-wrapper .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 0.8rem 2.5rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: 0.25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .faq-cta-wrapper .btn-primary:hover {
+      background: #9a7659;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(179, 139, 109, 0.3);
+    }
+
+    .faq-cta-wrapper .btn-secondary {
+      background: transparent;
+      color: var(--text-primary);
+      border: 2px solid var(--border-color);
+      padding: 0.75rem 2.2rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: 0.25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .faq-cta-wrapper .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .faq-cta-wrapper .btn-outline {
+      background: transparent;
+      color: var(--accent);
+      border: 2px solid var(--accent);
+      padding: 0.75rem 2.2rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: 0.25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .faq-cta-wrapper .btn-outline:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    /* FAQ CTA - Responsive */
+    @media (max-width: 767px) {
+      .faq-cta-section {
+        padding: 2.5rem 0;
+      }
+
+      .faq-cta-wrapper {
+        padding: 2.5rem 1.5rem;
+        border-radius: 20px;
+      }
+
+      .faq-cta-wrapper h2 {
+        font-size: 1.8rem;
+      }
+
+      .faq-cta-wrapper p {
+        font-size: 0.9rem;
+        margin: 0 auto 1.2rem;
+        padding: 0 0.5rem;
+      }
+
+      .faq-cta-wrapper .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .faq-cta-wrapper .btn-primary,
+      .faq-cta-wrapper .btn-secondary,
+      .faq-cta-wrapper .btn-outline {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+        padding: 0.7rem 1.8rem;
+        font-size: 0.85rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .faq-cta-wrapper {
+        padding: 2rem 1.2rem;
+        border-radius: 16px;
+      }
+
+      .faq-cta-wrapper h2 {
+        font-size: 1.5rem;
+      }
+
+      .faq-cta-wrapper p {
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+      }
+
+      .faq-cta-wrapper .btn-primary,
+      .faq-cta-wrapper .btn-secondary,
+      .faq-cta-wrapper .btn-outline {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.8rem;
+        max-width: 100%;
+      }
+
+      .faq-cta-wrapper .icon-big {
+        font-size: 2.5rem;
+      }
+    }
+
+    /* ============================================================ */
+    /* ===== HAMBURGER MENU - MOBILE/TABLET ONLY ===== */
+    /* ============================================================ */
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 10px 12px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      z-index: 1001;
+      flex-shrink: 0;
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      background: #E8D2B8;
+    }
+
+    [data-theme="dark"] .hamburger {
+      background: #1a1a1a;
+      border-color: #333;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 26px;
+      height: 3px;
+      background: var(--text-primary);
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 6px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -6px);
+    }
+
+    [dir="rtl"] .hamburger {
+      right: auto;
+      left: 15px;
+    }
+
+    /* ===== MOBILE NAV DRAWER ===== */
+    .mobile-nav-drawer {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: min(300px, 85vw);
+      height: 100vh;
+      background: var(--bg-primary);
+      border-left: 2px solid var(--accent);
+      z-index: 1000;
+      transition: right 0.3s ease;
+      overflow-y: auto;
+      box-shadow: -10px 0 30px var(--shadow);
+      display: flex;
+      flex-direction: column;
+    }
+
+    [dir="rtl"] .mobile-nav-drawer {
+      right: auto;
+      left: -100%;
+      border-left: none;
+      border-right: 2px solid var(--accent);
+    }
+
+    .mobile-nav-drawer.active {
+      right: 0;
+    }
+    [dir="rtl"] .mobile-nav-drawer.active {
+      left: 0;
+      right: auto;
+    }
+
+    .drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 20px 14px 20px;
+      border-bottom: 1px solid var(--border-color);
+      flex-shrink: 0;
+    }
+
+    .drawer-header .logo {
+      font-size: 1.5rem;
+    }
+
+    .close-drawer {
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      font-size: 24px;
+      cursor: pointer;
+      padding: 4px 8px;
+      transition: 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+
+    .close-drawer:hover {
+      color: var(--accent);
+      transform: rotate(90deg);
+    }
+
+    .mobile-nav-drawer ul {
+      list-style: none;
+      margin: 0;
+      padding: 16px 20px 40px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex: 1;
+    }
+
+    .mobile-nav-drawer ul li {
+      width: 100%;
+    }
+
+    .mobile-nav-drawer ul li a {
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      border-radius: 8px;
+      transition: 0.2s;
+      width: 100%;
+      opacity: 0.8;
+    }
+
+    .mobile-nav-drawer ul li a:hover,
+    .mobile-nav-drawer ul li a.active {
+      color: var(--accent);
+      background: var(--bg-primary);
+      opacity: 1;
+    }
+
+    .mobile-auth {
+      margin-top: 12px;
+      border-top: 1px solid var(--border-color);
+      padding-top: 14px;
+      gap: 8px;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .mobile-auth a {
+      width: 100%;
+      text-align: center;
+      justify-content: center;
+      padding: 10px 16px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .mobile-auth .mobile-login {
+      color: var(--accent);
+      border: 2px solid var(--accent);
+      background: transparent;
+    }
+    .mobile-auth .mobile-login:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .mobile-auth .mobile-signup {
+      background: var(--accent);
+      color: #fff;
+    }
+    .mobile-auth .mobile-signup:hover {
+      background: #9a7659;
+    }
+
+    .mobile-actions {
+      margin-top: 8px;
+      gap: 8px;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .mobile-actions button {
+      border-radius: 25px;
+      padding: 8px 14px;
+      flex: 1;
+      font-size: 13px;
+      gap: 6px;
+      min-width: 80px;
+      height: 38px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.3s;
+      font-weight: 500;
+    }
+
+    .mobile-actions button:hover {
+      border-color: var(--accent);
+      background: rgba(179, 139, 109, 0.08);
+    }
+
+    .mobile-actions button i {
+      font-size: 14px;
+    }
+
+    .nav-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+    }
+
+    .nav-overlay.active {
+      display: block;
+    }
+
+    body.menu-open {
+      overflow: hidden !important;
+      position: fixed !important;
+      width: 100% !important;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+
+    /* ============================================================ */
+    /* ===== TABLET & MOBILE - HIDE NAV CONTROLS ===== */
+    /* ============================================================ */
+
+    @media (max-width: 1024px) {
+      .nav-links {
+        display: none !important;
+      }
+
+      .nav-controls {
+        display: none !important;
+      }
+
+      .hamburger {
+        display: flex !important;
+      }
+    }
+
+    /* ============================================================ */
+    /* ===== FOOTER - RESPONSIVE ===== */
+    /* ============================================================ */
+
+    footer {
+      background: var(--bg-dark);
+      color: var(--text-light);
+      padding: 3rem 0 1.5rem;
+      margin-top: 0;
+    }
+
+    .footer-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-box {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+/* ===== CONTACT ICONS IN FOOTER ===== */
+.footer-box p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-box p i {
+  width: 20px;
+  color: var(--accent);
+  text-align: center;
+  flex-shrink: 0;
+}
+    .footer-box .footer-logo-link {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: #ffffff !important;  /* ← CHANGED to white */
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 0.3rem;
+}
+
+.footer-box .footer-logo-link span {
+  color: var(--accent);  /* "haven" stays accent color */
+  font-weight: 300;
+}
+
+.footer-box .footer-logo-link i {
+  color: var(--accent);  /* icon stays accent color */
+  font-size: 1.7rem;
+}
+    .footer-box p {
+      font-size: 0.9rem;
+      color: #c4b8ae;
+      line-height: 1.8;
+    }
+
+    .footer-box h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.3rem;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-box a {
+      color: #c4b8ae;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: 0.2s;
+      display: block;
+      line-height: 1.8;
+    }
+
+    .footer-box a:hover {
+      color: var(--accent);
+      padding-left: 4px;
+    }
+
+    [dir="rtl"] .footer-box a:hover {
+      padding-left: 0;
+      padding-right: 4px;
+    }
+
+    .social {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .social a {
+      background: rgba(255, 255, 255, 0.08);
+      color: #c4b8ae;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      transition: 0.3s ease;
+      text-decoration: none;
+    }
+
+    .social a:hover {
+      background: var(--accent);
+      color: #fff;
+      transform: translateY(-3px);
+    }
+
+    .social a.x-icon {
+      font-size: 0;
+    }
+
+    .social a.x-icon svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    .social a.x-icon:hover svg {
+      fill: #fff;
+    }
+
+    footer hr {
+      max-width: 1280px;
+      margin: 0 auto;
+      border: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 0 1.5rem;
+    }
+
+    footer .copy {
+      max-width: 1280px;
+      margin: 1.2rem auto 0;
+      padding: 0 1.5rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #7f6b5a;
+    }
+
+    footer .copy span {
+      color: var(--accent);
+    }
+
+    /* ===== FOOTER - TABLET (768px - 1024px) ===== */
+    @media (max-width: 1024px) and (min-width: 768px) {
+      .footer-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        text-align: left;
+      }
+
+      .footer-box:first-child {
+        grid-column: 1 / 2;
+        text-align: left !important;
+        align-items: flex-start !important;
+      }
+
+      .footer-box:first-child .footer-logo-link {
+        justify-content: flex-start !important;
+      }
+
+      .footer-box:first-child p {
+        text-align: left !important;
+        max-width: 400px;
+      }
+
+      .footer-box:nth-child(2) {
+        grid-column: 2 / 3;
+        text-align: left !important;
+        align-items: flex-start !important;
+      }
+
+      .footer-box:nth-child(2) h2,
+      .footer-box:nth-child(2) a {
+        text-align: left !important;
+      }
+
+      .footer-box:nth-child(3) {
+        grid-column: 1 / 2;
+        grid-row: 2;
+        text-align: left !important;
+        align-items: flex-start !important;
+      }
+
+      .footer-box:nth-child(3) h2,
+      .footer-box:nth-child(3) p {
+        text-align: left !important;
+      }
+
+      .footer-box:nth-child(4) {
+        grid-column: 2 / 3;
+        grid-row: 2;
+        text-align: left !important;
+        align-items: flex-start !important;
+      }
+
+      .footer-box:nth-child(4) h2 {
+        text-align: left !important;
+      }
+
+      .footer-box:nth-child(4) .social {
+        justify-content: flex-start !important;
+      }
+
+      footer .copy {
+        text-align: center !important;
+      }
+    }
+
+    /* ===== FOOTER - MOBILE (up to 767px) ===== */
+    @media (max-width: 767px) {
+      footer {
+        padding: 2rem 0 1rem;
+      }
+
+      .footer-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        text-align: left !important;
+        padding: 0 1.5rem;
+      }
+
+      .footer-box {
+        text-align: left !important;
+        align-items: flex-start !important;
+      }
+
+      .footer-box .footer-logo-link {
+        justify-content: flex-start !important;
+      }
+
+      .footer-box .footer-logo-link {
+        font-size: 1.6rem !important;
+      }
+
+      .footer-box .footer-logo-link i {
+        font-size: 1.4rem !important;
+      }
+
+      .footer-box .footer-logo-link span {
+        font-size: 1.6rem !important;
+      }
+
+      .footer-box p {
+        text-align: left !important;
+        font-size: 0.85rem;
+        max-width: 100%;
+      }
+
+      .footer-box h2 {
+        text-align: left !important;
+        font-size: 1rem;
+        margin-bottom: 0.2rem;
+      }
+
+      .footer-box a {
+        text-align: left !important;
+        font-size: 0.85rem;
+      }
+
+      .footer-box .social {
+        justify-content: flex-start !important;
+      }
+
+      .social a {
+        width: 34px;
+        height: 34px;
+        font-size: 0.85rem;
+      }
+
+      .social a.x-icon svg {
+        width: 14px;
+        height: 14px;
+      }
+
+      footer .copy {
+        text-align: center !important;
+        font-size: 0.75rem;
+        padding: 0 1.5rem;
+      }
+
+      .footer-box:first-child {
+        grid-column: 1;
+      }
+
+      .footer-box:nth-child(4) {
+        grid-column: 1;
+      }
+
+      .footer-box:nth-child(4) .social {
+        justify-content: flex-start !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      footer {
+        padding: 1.5rem 0 1rem;
+      }
+
+      .footer-container {
+        gap: 1.2rem;
+        padding: 0 1.2rem;
+      }
+
+      .footer-box .footer-logo-link {
+        font-size: 1.4rem !important;
+      }
+
+      .footer-box .footer-logo-link i {
+        font-size: 1.2rem !important;
+      }
+
+      .footer-box .footer-logo-link span {
+        font-size: 1.4rem !important;
+      }
+
+      .footer-box p {
+        font-size: 0.8rem;
+      }
+
+      .footer-box h2 {
+        font-size: 0.9rem;
+      }
+
+      .footer-box a {
+        font-size: 0.8rem;
+      }
+
+      .social a {
+        width: 30px;
+        height: 30px;
+        font-size: 0.75rem;
+      }
+
+      .social a.x-icon svg {
+        width: 12px;
+        height: 12px;
+      }
+
+      footer .copy {
+        font-size: 0.65rem;
+      }
+    }
+
+    /* ===== FORCE FOOTER LOGO ===== */
+    footer .footer-logo-link {
+      font-size: 2rem !important;
+      font-weight: 700 !important;
+      letter-spacing: -0.5px !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 4px !important;
+    }
+
+    footer .footer-logo-link span {
+      font-size: 2rem !important;
+      font-weight: 300 !important;
+    }
+
+    footer .footer-logo-link i {
+      font-size: 1.7rem !important;
+    }
+  </style>
+</head>
+<body>
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <div class="container" style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; width:100%; padding:0;">
+      <a href="index.html" class="logo"><i class="fas fa-spa"></i>Glow<span>haven</span></a>
+      <ul class="nav-links">
+        <li class="dropdown" id="homeDropdown">
+          <a href="#" onclick="toggleDropdown(event)">Home <i class="fas fa-chevron-down" style="font-size:0.6rem;"></i></a>
+          <div class="dropdown-content" id="dropdownContent">
+            <a href="index.html">Home 1</a>
+            <a href="home2.html">Home 2</a>
+          </div>
+        </li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="ingredients.html">Ingredients</a></li>
+        <li><a href="skin-guide.html">Skin Guide</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="faq.html" class="active">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-controls">
+        <button class="toggle-btn" onclick="toggleRTL()" id="rtlBtn">RTL</button>
+        <button class="toggle-btn" onclick="toggleTheme()" title="Toggle Dark/Light Mode" id="themeToggle">
+          <i class="fas fa-moon"></i>
+        </button>
+        <a href="login.html" class="login-btn"><i class="fas fa-sign-in-alt"></i> Login</a>
+        <a href="signup.html" class="signup-btn">Sign Up</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HAMBURGER ===== -->
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <!-- ===== MOBILE NAV DRAWER ===== -->
+  <div class="mobile-nav-drawer" id="mobileNav">
+    <div class="drawer-header">
+      <a href="index.html" class="logo"><i class="fas fa-spa"></i>Glow<span>haven</span></a>
+      <button class="close-drawer" onclick="closeMenu()">✕</button>
+    </div>
+    <ul>
+      <li><a href="index.html">Home 1</a></li>
+      <li><a href="home2.html">Home 2</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="ingredients.html">Ingredients</a></li>
+      <li><a href="skin-guide.html">Skin Guide</a></li>
+      <li><a href="quiz.html">Quiz</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="faq.html" class="active">FAQ</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li class="mobile-auth">
+        <a href="login.html" class="mobile-login">Login</a>
+        <a href="signup.html" class="mobile-signup">Sign Up</a>
+      </li>
+      <li class="mobile-actions">
+        <button onclick="toggleMobileRTL()" id="mobileRtlBtn">
+          <i class="fas fa-exchange-alt"></i> <span id="mobileRtlLabel">RTL</span>
+        </button>
+        <button onclick="toggleMobileTheme()" id="mobileThemeBtn">
+          <i class="fas fa-moon" id="mobileThemeIcon"></i> <span id="mobileThemeLabel">Dark</span>
+        </button>
+      </li>
+    </ul>
+  </div>
+
+  <!-- ===== OVERLAY ===== -->
+  <div class="nav-overlay" id="navOverlay" onclick="closeMenu()"></div>
+
+  <!-- ===== SECTION 1: FAQ HERO ===== -->
+  <section class="faq-hero">
+    <div class="container">
+      <div class="hero-wrapper">
+        <div class="hero-left">
+          <span class="hero-badge"><i class="fas fa-question-circle"></i> FAQ</span>
+          <h1>Got <span>Questions?</span></h1>
+          <p>Find answers to the most common questions about our products, shipping, returns, and more. If you can't find what you're looking for, feel free to reach out.</p>
+          <div class="hero-search">
+            <input type="text" placeholder="Search for answers..." id="faqSearch">
+            <button onclick="searchFAQ()"><i class="fas fa-search"></i> Search</button>
+          </div>
+        </div>
+        <div class="hero-right">
+          <div class="hero-image">
+            <img src="images/faq-hero.jpg" alt="FAQ">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 2: FAQ ACCORDION ===== -->
+  <section class="faq-accordion-section">
+    <div class="container">
+      <h2 class="section-title"><i class="fas fa-list"></i> Frequently Asked Questions</h2>
+      <p class="section-subtitle">Click on a question to reveal the answer.</p>
+
+      <div class="faq-accordion">
+        <div class="faq-item active">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <h3>What is your shipping policy?</h3>
+            <span class="icon"><i class="fas fa-chevron-down"></i></span>
+          </div>
+          <div class="faq-answer">
+            <p>We offer free shipping on all orders over $50. Standard shipping takes 3-5 business days, and express shipping (2-3 business days) is available for an additional fee. All orders are processed within 24 hours.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <h3>What is your return policy?</h3>
+            <span class="icon"><i class="fas fa-chevron-down"></i></span>
+          </div>
+          <div class="faq-answer">
+            <p>We accept returns within 30 days of purchase for a full refund. Products must be unused and in their original packaging. To initiate a return, please contact our support team with your order number.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <h3>Are your products cruelty-free?</h3>
+            <span class="icon"><i class="fas fa-chevron-down"></i></span>
+          </div>
+          <div class="faq-answer">
+            <p>Yes! All Glow Haven products are 100% cruelty-free. We never test on animals, and we are certified by leading cruelty-free organizations. Our products are also vegan-friendly.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <h3>How do I know which products are right for my skin?</h3>
+            <span class="icon"><i class="fas fa-chevron-down"></i></span>
+          </div>
+          <div class="faq-answer">
+            <p>We recommend taking our Skin Quiz! It asks 5 quick questions about your skin type, concerns, and goals, and then recommends products tailored just for you. You can also consult our Skin Guide for more information.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <h3>Do you offer international shipping?</h3>
+            <span class="icon"><i class="fas fa-chevron-down"></i></span>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, we ship to over 45 countries worldwide. International shipping times vary by location, typically 7-14 business days. Duties and taxes may apply and are calculated at checkout.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <h3>What payment methods do you accept?</h3>
+            <span class="icon"><i class="fas fa-chevron-down"></i></span>
+          </div>
+          <div class="faq-answer">
+            <p>We accept all major credit cards (Visa, Mastercard, American Express), PayPal, Apple Pay, and Google Pay. All transactions are secure and encrypted for your protection.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <h3>Can I change or cancel my order?</h3>
+            <span class="icon"><i class="fas fa-chevron-down"></i></span>
+          </div>
+          <div class="faq-answer">
+            <p>You can cancel or modify your order within 2 hours of placing it. Please contact our support team immediately with your order number and we'll do our best to accommodate your request.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 3: FAQ GRID ===== -->
+  <section class="faq-grid-section">
+    <div class="container">
+      <h2 class="section-title"><i class="fas fa-grid"></i> Quick Answers</h2>
+      <p class="section-subtitle">Find quick answers to common questions in one glance.</p>
+
+      <div class="faq-grid-container">
+        <div class="faq-grid-item">
+          <span class="q">Q1</span>
+          <h4>How do I track my order?</h4>
+          <p>Once your order ships, you'll receive a tracking number via email. You can also track your order in your account dashboard.</p>
+        </div>
+        <div class="faq-grid-item">
+          <span class="q">Q2</span>
+          <h4>Are your products safe for sensitive skin?</h4>
+          <p>Yes! Our products are dermatologist-tested and formulated with gentle ingredients. We have a specific range for sensitive skin.</p>
+        </div>
+        <div class="faq-grid-item">
+          <span class="q">Q3</span>
+          <h4>Do you have a loyalty program?</h4>
+          <p>Yes! Join our Glow Rewards program to earn points on every purchase, get exclusive discounts, and receive birthday gifts.</p>
+        </div>
+        <div class="faq-grid-item">
+          <span class="q">Q4</span>
+          <h4>How do I contact customer support?</h4>
+          <p>You can reach us via email at hello@glowhaven.com, phone at +1 (800) 555-GLOW, or through our contact form.</p>
+        </div>
+        <div class="faq-grid-item">
+          <span class="q">Q5</span>
+          <h4>Do you offer gift cards?</h4>
+          <p>Yes! Digital gift cards are available in various denominations and make the perfect gift for any skincare lover.</p>
+        </div>
+        <div class="faq-grid-item">
+          <span class="q">Q6</span>
+          <h4>How do I know if a product is right for me?</h4>
+          <p>Check the product description for skin type recommendations, read customer reviews, or take our Skin Quiz for personalized suggestions.</p>
+        </div>
+        <div class="faq-grid-item">
+          <span class="q">Q7</span>
+          <h4>Do you offer free samples?</h4>
+          <p>Yes! We include 2 free samples with every order so you can try new products before committing to a full size.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 4: CTA ===== -->
+  <section class="faq-cta-section">
+    <div class="container">
+      <div class="faq-cta-wrapper">
+        <span class="icon-big"><i class="fas fa-comment-dots"></i></span>
+        <h2>Still Have Questions?</h2>
+        <p>Our skincare experts are here to help you find the perfect products and answers to all your questions.</p>
+        <div class="cta-buttons">
+          <a href="contact.html" class="btn-primary">
+            <i class="fas fa-envelope"></i> Contact Support
+          </a>
+          <a href="skin-guide.html" class="btn-secondary">
+            <i class="fas fa-book"></i> Visit Skin Guide
+          </a>
+          <a href="quiz.html" class="btn-outline">
+            <i class="fas fa-sparkles"></i> Take Skin Quiz
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-box">
+        <a href="index.html" class="footer-logo-link" onclick="scrollToTop()">
+          <i class="fas fa-spa"></i>Glow<span>haven</span>
+        </a>
+        <p>Your trusted destination for clean, sustainable skincare and beauty products. We believe in glowing skin for everyone.</p>
+      </div>
+      <div class="footer-box">
+        <h2>Quick Links</h2>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="shop.html">Shop</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    <div class="footer-box">
+  <h2>Contact</h2>
+  <p><i class="fas fa-map-marker-alt"></i> New York, NY 10001</p>
+  <p><i class="fas fa-phone-alt"></i> +1 (800) 555-GLOW</p>
+  <p><i class="fas fa-envelope"></i> hello@glowhaven.com</p>
+  <p><i class="fas fa-clock"></i> Mon - Sat : 9AM - 8PM EST</p>
+</div>
+      <div class="footer-box">
+        <h2>Follow Us</h2>
+        <div class="social">
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="#" aria-label="Twitter/X" class="x-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <p class="copy">© 2026 <span>Glow Haven</span>. All Rights Reserved. Clean Beauty for Every Skin.</p>
+  </footer>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    // ===== DROPDOWN TOGGLE =====
+    let dropdownOpen = false;
+
+    function toggleDropdown(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      const content = document.getElementById('dropdownContent');
+      dropdownOpen = !dropdownOpen;
+      content.classList.toggle('show', dropdownOpen);
+    }
+
+    document.addEventListener('click', function(e) {
+      const dropdown = document.getElementById('homeDropdown');
+      if (!dropdown.contains(e.target)) {
+        document.getElementById('dropdownContent').classList.remove('show');
+        dropdownOpen = false;
+      }
+    });
+
+    // ===== THEME TOGGLE =====
+    let darkMode = false;
+
+    function toggleTheme() {
+      darkMode = !darkMode;
+      const themeIcon = document.getElementById('themeToggle').querySelector('i');
+      const mobileThemeIcon = document.getElementById('mobileThemeIcon');
+      const mobileThemeLabel = document.getElementById('mobileThemeLabel');
+
+      if (darkMode) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        themeIcon.className = 'fas fa-sun';
+        if (mobileThemeIcon) mobileThemeIcon.className = 'fas fa-sun';
+        if (mobileThemeLabel) mobileThemeLabel.textContent = 'Light';
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+        themeIcon.className = 'fas fa-moon';
+        if (mobileThemeIcon) mobileThemeIcon.className = 'fas fa-moon';
+        if (mobileThemeLabel) mobileThemeLabel.textContent = 'Dark';
+      }
+    }
+
+    function toggleMobileTheme() {
+      toggleTheme();
+    }
+
+    // ===== RTL TOGGLE =====
+    let rtlMode = false;
+
+    function toggleRTL() {
+      rtlMode = !rtlMode;
+      const rtlBtn = document.getElementById('rtlBtn');
+      const mobileRtlLabel = document.getElementById('mobileRtlLabel');
+
+      if (rtlMode) {
+        document.documentElement.setAttribute('dir', 'rtl');
+        if (rtlBtn) rtlBtn.textContent = 'LTR';
+        if (mobileRtlLabel) mobileRtlLabel.textContent = 'LTR';
+      } else {
+        document.documentElement.removeAttribute('dir');
+        if (rtlBtn) rtlBtn.textContent = 'RTL';
+        if (mobileRtlLabel) mobileRtlLabel.textContent = 'RTL';
+      }
+    }
+
+    function toggleMobileRTL() {
+      toggleRTL();
+    }
+
+    // ===== MOBILE MENU =====
+    function toggleMenu(open) {
+      const hamburger = document.getElementById('hamburger');
+      const mobileNav = document.getElementById('mobileNav');
+      const overlay = document.getElementById('navOverlay');
+
+      if (open) {
+        hamburger.classList.add('active');
+        mobileNav.classList.add('active');
+        if (overlay) overlay.classList.add('active');
+        document.body.classList.add('menu-open');
+      } else {
+        hamburger.classList.remove('active');
+        mobileNav.classList.remove('active');
+        if (overlay) overlay.classList.remove('active');
+        document.body.classList.remove('menu-open');
+      }
+    }
+
+    function closeMenu() {
+      toggleMenu(false);
+    }
+
+    document.getElementById('hamburger').addEventListener('click', function(e) {
+      e.stopPropagation();
+      const isOpen = document.getElementById('mobileNav').classList.contains('active');
+      toggleMenu(!isOpen);
+    });
+
+    document.getElementById('navOverlay').addEventListener('click', closeMenu);
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeMenu();
+        document.querySelectorAll('.dropdown-content.show').forEach(d => d.classList.remove('show'));
+      }
+    });
+
+    document.querySelectorAll('.mobile-nav-drawer ul li a').forEach(link => {
+      link.addEventListener('click', function() {
+        if (!this.classList.contains('dropdown-toggle')) {
+          closeMenu();
+        }
+      });
+    });
+
+    // ===== SCROLL TO TOP =====
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // ===== FAQ ACCORDION =====
+    function toggleFAQ(element) {
+      const item = element.parentElement;
+      const isActive = item.classList.contains('active');
+      
+      // Close all other items
+      document.querySelectorAll('.faq-item').forEach(el => {
+        el.classList.remove('active');
+      });
+      
+      // Toggle current item
+      if (!isActive) {
+        item.classList.add('active');
+      }
+    }
+
+    // ===== FAQ SEARCH =====
+    function searchFAQ() {
+      const query = document.getElementById('faqSearch').value.toLowerCase().trim();
+      if (!query) {
+        // Reset: show all items
+        document.querySelectorAll('.faq-item').forEach(el => {
+          el.style.display = '';
+        });
+        document.querySelectorAll('.faq-grid-item').forEach(el => {
+          el.style.display = '';
+        });
+        return;
+      }
+
+      // Search in accordion items
+      document.querySelectorAll('.faq-item').forEach(el => {
+        const question = el.querySelector('.faq-question h3').textContent.toLowerCase();
+        const answer = el.querySelector('.faq-answer p').textContent.toLowerCase();
+        if (question.includes(query) || answer.includes(query)) {
+          el.style.display = '';
+          // Open matched items
+          el.classList.add('active');
+        } else {
+          el.style.display = 'none';
+          el.classList.remove('active');
+        }
+      });
+
+      // Search in grid items
+      document.querySelectorAll('.faq-grid-item').forEach(el => {
+        const text = el.textContent.toLowerCase();
+        el.style.display = text.includes(query) ? '' : 'none';
+      });
+    }
+
+    // Allow Enter key for search
+    document.getElementById('faqSearch').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        searchFAQ();
+      }
+    });
+
+    // ===== RUN ON LOAD =====
+    window.addEventListener('load', function() {
+      if (document.documentElement.getAttribute('data-theme') === 'dark') {
+        document.getElementById('themeToggle').querySelector('i').className = 'fas fa-sun';
+        const mi = document.getElementById('mobileThemeIcon');
+        const ml = document.getElementById('mobileThemeLabel');
+        if (mi) mi.className = 'fas fa-sun';
+        if (ml) ml.textContent = 'Light';
+      }
+    });
+  </script>
+</body>
+</html>
