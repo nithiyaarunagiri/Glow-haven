@@ -233,24 +233,25 @@
       border-bottom: 2px solid var(--accent);
     }
 
-    .nav-controls .login-btn {
-      background: var(--accent);
-      color: #fff;
-      border: none;
-      padding: 0.5rem 1.2rem;
-      border-radius: 60px;
-      font-weight: 600;
-      font-size: 0.85rem;
-      cursor: pointer;
-      transition: 0.2s;
-      text-decoration: none;
-    }
+   .nav-controls .login-btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 60px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: 0.25s;
+  text-decoration: none;
+}
 
-    .nav-controls .login-btn:hover {
-      background: var(--text-primary);
-      transform: translateY(-2px);
-    }
-
+.nav-controls .login-btn:hover {
+  background: #ffffff !important;
+  color: #2d2a24 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(179, 139, 109, 0.3);
+}
     .nav-controls .signup-btn {
       background: transparent;
       color: var(--text-primary);
@@ -1487,6 +1488,17 @@
       color: var(--accent);
       padding-left: 4px;
     }
+    .footer-box p i {
+  width: 20px;
+  color: var(--accent);
+  text-align: center;
+  flex-shrink: 0;
+}
+
+/* Ensure phone icon displays properly in dark mode */
+[data-theme="dark"] .footer-box p i {
+  color: var(--accent);
+}
 
     [dir="rtl"] .footer-box a:hover {
       padding-left: 0;
@@ -1932,13 +1944,13 @@
           </div>
 
           <div class="contact-info-card">
-            <div class="icon-wrapper"><i class="fas fa-phone-alt"></i></div>
-            <div class="info-content">
-              <h4>Call Us</h4>
-              <p><a href="tel:+1800555GLOW">+1 (800) 555-GLOW</a></p>
-              <p style="font-size:0.75rem; color:var(--text-secondary);">Mon - Sat : 9AM - 8PM EST</p>
-            </div>
-          </div>
+  <div class="icon-wrapper"><i class="fas fa-phone"></i></div>
+  <div class="info-content">
+    <h4>Call Us</h4>
+    <p><a href="tel:+1800555GLOW">+1 (800) 555-GLOW</a></p>
+    <p style="font-size:0.75rem; color:var(--text-secondary);">Mon - Sat : 9AM - 8PM EST</p>
+  </div>
+</div>
 
           <div class="contact-info-card">
             <div class="icon-wrapper"><i class="fas fa-map-marker-alt"></i></div>
@@ -2029,10 +2041,10 @@
         <a href="pricing.html">Pricing</a>
         <a href="contact.html">Contact</a>
       </div>
-      <div class="footer-box">
+     <div class="footer-box">
   <h2>Contact</h2>
   <p><i class="fas fa-map-marker-alt"></i> New York, NY 10001</p>
-  <p><i class="fas fa-phone-alt"></i> +1 (800) 555-GLOW</p>
+  <p><i class="fas fa-phone"></i> +1 (800) 555-GLOW</p>
   <p><i class="fas fa-envelope"></i> hello@glowhaven.com</p>
   <p><i class="fas fa-clock"></i> Mon - Sat : 9AM - 8PM EST</p>
 </div>

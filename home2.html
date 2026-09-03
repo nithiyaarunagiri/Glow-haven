@@ -220,23 +220,25 @@
       border-color: var(--accent);
     }
 
-    .nav-controls .login-btn {
-      background: var(--accent);
-      color: #fff;
-      border: none;
-      padding: 0.5rem 1.2rem;
-      border-radius: 60px;
-      font-weight: 600;
-      font-size: 0.85rem;
-      cursor: pointer;
-      transition: 0.2s;
-      text-decoration: none;
-    }
+   .nav-controls .login-btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 60px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: 0.25s;
+  text-decoration: none;
+}
 
-    .nav-controls .login-btn:hover {
-      background: var(--text-primary);
-      transform: translateY(-2px);
-    }
+.nav-controls .login-btn:hover {
+  background: #ffffff !important;
+  color: #2d2a24 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(179, 139, 109, 0.3);
+}
 
     .nav-controls .signup-btn {
       background: transparent;
@@ -534,16 +536,32 @@
       gap: 2rem;
     }
 
-    .concern-card {
-      background: var(--card-bg);
-      border-radius: 28px;
-      padding: 1.5rem 1.5rem 2rem;
-      text-align: center;
-      border: 1px solid var(--border-color);
-      transition: 0.35s ease;
-      position: relative;
-      overflow: hidden;
-    }
+   .concern-card {
+  background: var(--card-bg);
+  border-radius: 28px;
+  padding: 1.5rem 1.5rem 2rem;
+  text-align: center;
+  border: 1px solid var(--border-color);
+  transition: 0.35s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.concern-card p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+  flex-grow: 1;
+}
+
+.concern-card .btn-concern {
+  margin-top: auto;
+  align-self: center;
+}
 
     .concern-card::before {
       content: '';
@@ -597,25 +615,27 @@
     }
 
     .concern-card .btn-concern {
-      background: var(--accent);
-      color: #fff;
-      border: none;
-      padding: 0.5rem 1.8rem;
-      border-radius: 60px;
-      font-weight: 600;
-      font-size: 0.8rem;
-      cursor: pointer;
-      transition: 0.25s;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1.8rem;
+  border-radius: 60px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: 0.25s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
 
-    .concern-card .btn-concern:hover {
-      background: var(--text-primary);
-      transform: translateY(-2px);
-    }
+.concern-card .btn-concern:hover {
+  background: #ffffff !important;
+  color: #2d2a24 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(179, 139, 109, 0.4);
+}
 
     /* Concern - Responsive */
     @media (max-width: 992px) {
@@ -788,163 +808,180 @@
       }
     }
 
-    /* ============================================================ */
-    /* ===== SECTION 4: NEW ARRIVALS ===== */
-    /* ============================================================ */
+  /* ============================================================ */
+/* ===== SECTION 4: NEW ARRIVALS ===== */
+/* ============================================================ */
 
-    .arrivals-section {
-      background: var(--bg-primary);
-      padding: 4rem 0;
-      transition: background var(--transition);
-    }
+.arrivals-section {
+  background: var(--bg-primary);
+  padding: 4rem 0;
+  transition: background var(--transition);
+}
 
-    .arrivals-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
-    }
+.arrivals-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
 
-    .arrival-card {
-      background: var(--card-bg);
-      border-radius: 24px;
-      overflow: hidden;
-      border: 1px solid var(--border-color);
-      transition: 0.3s;
-      text-align: center;
-    }
+.arrival-card {
+  background: var(--card-bg);
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  transition: 0.3s;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 
-    .arrival-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 16px 40px var(--shadow);
-      border-color: var(--accent);
-    }
+.arrival-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px var(--shadow);
+  border-color: var(--accent);
+}
 
-    .arrival-card .arrival-img {
-      width: 100%;
-      height: 220px;
-      overflow: hidden;
-    }
+.arrival-card .arrival-img {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
 
-    .arrival-card .arrival-img img {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: cover;
-    }
+.arrival-card .arrival-img img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
 
-    .arrival-card .arrival-info {
-      padding: 1.5rem 1.2rem 1.8rem;
-    }
+.arrival-card .arrival-info {
+  padding: 1.5rem 1.2rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: 100%;
+}
 
-    .arrival-card .arrival-info h4 {
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      margin-bottom: 0.3rem;
-    }
+.arrival-card .arrival-info h4 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.3rem;
+}
 
-    .arrival-card .arrival-info p {
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      margin-bottom: 1rem;
-    }
+.arrival-card .arrival-info p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
 
-    .arrival-card .btn-shop {
-      background: var(--accent);
-      color: #fff;
-      border: none;
-      padding: 0.5rem 1.8rem;
-      border-radius: 60px;
-      font-weight: 600;
-      font-size: 0.8rem;
-      cursor: pointer;
-      transition: 0.2s;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
+.arrival-card .btn-shop {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1.8rem;
+  border-radius: 60px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: 0.25s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  align-self: center;
+  margin-top: auto;
+  width: auto;
+  min-width: 120px;
+}
 
-    .arrival-card .btn-shop:hover {
-      background: var(--text-primary);
-      transform: scale(1.02);
-    }
+.arrival-card .btn-shop:hover {
+  background: #ffffff !important;
+  color: #2d2a24 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(179, 139, 109, 0.4);
+}
 
-    /* Arrivals - Responsive */
-    @media (max-width: 992px) {
-      .arrivals-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-      }
-    }
+/* Arrivals - Responsive */
+@media (max-width: 992px) {
+  .arrivals-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
 
-    @media (max-width: 767px) {
-      .arrivals-section {
-        padding: 2.5rem 0;
-      }
+@media (max-width: 767px) {
+  .arrivals-section {
+    padding: 2.5rem 0;
+  }
 
-      .arrivals-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-      }
+  .arrivals-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
 
-      .arrival-card {
-        border-radius: 18px;
-      }
+  .arrival-card {
+    border-radius: 18px;
+  }
 
-      .arrival-card .arrival-img {
-        height: 160px;
-      }
+  .arrival-card .arrival-img {
+    height: 160px;
+  }
 
-      .arrival-card .arrival-info {
-        padding: 1rem 0.8rem 1.2rem;
-      }
+  .arrival-card .arrival-info {
+    padding: 1rem 0.8rem 1.2rem;
+  }
 
-      .arrival-card .arrival-info h4 {
-        font-size: 0.9rem;
-      }
+  .arrival-card .arrival-info h4 {
+    font-size: 0.9rem;
+  }
 
-      .arrival-card .arrival-info p {
-        font-size: 0.75rem;
-        margin-bottom: 0.6rem;
-      }
+  .arrival-card .arrival-info p {
+    font-size: 0.75rem;
+    margin-bottom: 0.6rem;
+  }
 
-      .arrival-card .btn-shop {
-        font-size: 0.7rem;
-        padding: 0.4rem 1.2rem;
-      }
-    }
+  .arrival-card .btn-shop {
+    font-size: 0.7rem;
+    padding: 0.4rem 1.2rem;
+    min-width: 100px;
+  }
+}
 
-    @media (max-width: 480px) {
-      .arrivals-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 0.8rem;
-      }
+@media (max-width: 480px) {
+  .arrivals-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+  }
 
-      .arrival-card .arrival-img {
-        height: 130px;
-      }
+  .arrival-card .arrival-img {
+    height: 130px;
+  }
 
-      .arrival-card .arrival-info {
-        padding: 0.8rem 0.6rem 1rem;
-      }
+  .arrival-card .arrival-info {
+    padding: 0.8rem 0.6rem 1rem;
+  }
 
-      .arrival-card .arrival-info h4 {
-        font-size: 0.8rem;
-      }
+  .arrival-card .arrival-info h4 {
+    font-size: 0.8rem;
+  }
 
-      .arrival-card .arrival-info p {
-        font-size: 0.7rem;
-        margin-bottom: 0.4rem;
-      }
+  .arrival-card .arrival-info p {
+    font-size: 0.7rem;
+    margin-bottom: 0.4rem;
+  }
 
-      .arrival-card .btn-shop {
-        font-size: 0.6rem;
-        padding: 0.3rem 1rem;
-        gap: 4px;
-      }
-    }
-
+  .arrival-card .btn-shop {
+    font-size: 0.6rem;
+    padding: 0.3rem 1rem;
+    gap: 4px;
+    min-width: 80px;
+  }
+}
     /* ============================================================ */
     /* ===== SECTION 5: BRAND STORY ===== */
     /* ============================================================ */
@@ -1160,15 +1197,15 @@
     /* ===== CTA SECTION ===== */
     /* ============================================================ */
 
-    .cta-section {
-      background: linear-gradient(135deg, var(--accent), #9a7659);
-      border-radius: 32px;
-      padding: 3.5rem 2.5rem;
-      margin: 0 0 2rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
+   .cta-section {
+  background: linear-gradient(135deg, var(--accent), #9a7659);
+  border-radius: 32px;
+  padding: 3.5rem 2.5rem;
+  margin: 0 0 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
 
     .cta-section::before {
       content: '';
