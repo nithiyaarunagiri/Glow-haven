@@ -499,163 +499,182 @@
       }
     }
 
-    /* ============================================================ */
-    /* ===== SECTION 2: QUIZ FORM ===== */
-    /* ============================================================ */
+   /* ============================================================ */
+/* ===== SECTION 2: QUIZ FORM ===== */
+/* ============================================================ */
 
-    .quiz-form-section {
-      background: var(--bg-primary);
-      padding: 2rem 0 4rem;
-      transition: background var(--transition);
-    }
+.quiz-form-section {
+  background: var(--bg-primary);
+  padding: 2rem 0 4rem;
+  transition: background var(--transition);
+}
 
-    .quiz-container {
-      max-width: 700px;
-      margin: 0 auto;
-      background: var(--card-bg);
-      border-radius: 24px;
-      padding: 2.5rem 2.5rem;
-      border: 1px solid var(--border-color);
-      box-shadow: 0 8px 30px var(--shadow);
-    }
+.quiz-container {
+  max-width: 700px;
+  margin: 0 auto;
+  background: var(--card-bg);
+  border-radius: 24px;
+  padding: 2.5rem 2.5rem;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 30px var(--shadow);
+}
 
-    .quiz-progress {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 2rem;
-    }
+.quiz-progress {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
 
-    .quiz-progress .progress-step {
-      flex: 1;
-      height: 4px;
-      background: var(--border-color);
-      border-radius: 4px;
-      margin: 0 4px;
-      transition: 0.3s;
-    }
+.quiz-progress .progress-step {
+  flex: 1;
+  height: 4px;
+  background: var(--border-color);
+  border-radius: 4px;
+  margin: 0 4px;
+  transition: 0.3s;
+}
 
-    .quiz-progress .progress-step.active {
-      background: var(--accent);
-    }
-
-    .quiz-progress .progress-step.completed {
-      background: var(--accent);
-    }
-
-    .quiz-question {
-      margin-bottom: 2rem;
-    }
-
-    .quiz-question .question-number {
-      font-size: 0.8rem;
-      color: var(--accent);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .quiz-question .question-text {
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      margin-top: 0.3rem;
-    }
-
-    .quiz-options {
-      display: flex;
-      flex-direction: column;
-      gap: 0.8rem;
-      margin-bottom: 2rem;
-    }
-
-    .quiz-options .option {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 1rem 1.2rem;
-      border: 2px solid var(--border-color);
-      border-radius: 12px;
-      cursor: pointer;
-      transition: 0.25s ease;
-      background: var(--bg-primary);
-    }
-
-    .quiz-options .option:hover {
-      border-color: var(--accent);
-      background: rgba(179, 139, 109, 0.04);
-    }
-
-    .quiz-options .option.selected {
-      border-color: var(--accent);
-      background: rgba(179, 139, 109, 0.08);
-    }
-
-    .quiz-options .option .radio {
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      border: 2px solid var(--border-color);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      transition: 0.2s;
-    }
-
-    .quiz-options .option.selected .radio {
-      border-color: var(--accent);
-    }
-
-    .quiz-options .option .radio .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--accent);
-      transform: scale(0);
-      transition: 0.2s;
-    }
-
-    .quiz-options .option.selected .radio .dot {
-      transform: scale(1);
-    }
-
-    .quiz-options .option .option-text {
-      font-size: 0.95rem;
-      color: var(--text-primary);
-    }
-
-    .quiz-nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .quiz-nav .btn-prev {
-      background: transparent;
-      border: 2px solid var(--border-color);
-      padding: 0.6rem 1.8rem;
-      border-radius: 60px;
-      font-weight: 600;
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      cursor: pointer;
-      transition: 0.2s;
-      font-family: 'Inter', sans-serif;
-    }
-
-    .quiz-nav .btn-prev:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    .quiz-nav .btn-prev:disabled {
-      opacity: 0.3;
-      cursor: not-allowed;
-    }
-
-  .quiz-nav .btn-next {
+.quiz-progress .progress-step.active {
   background: var(--accent);
+}
+
+.quiz-progress .progress-step.completed {
+  background: var(--accent);
+}
+
+.quiz-question {
+  margin-bottom: 2rem;
+}
+
+.quiz-question .question-number {
+  font-size: 0.8rem;
+  color: var(--accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.quiz-question .question-text {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-top: 0.3rem;
+}
+
+/* ===== WARNING MESSAGE ===== */
+.quiz-warning-message {
+  color: #e74c3c;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  display: none;
+  align-items: center;
+  gap: 6px;
+  padding: 0.6rem 1rem;
+  background: rgba(231, 76, 60, 0.08);
+  border-radius: 8px;
+  border-left: 3px solid #e74c3c;
+}
+
+.quiz-warning-message.show {
+  display: flex;
+}
+
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.quiz-options .option {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.2rem;
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.25s ease;
+  background: var(--bg-primary);
+}
+
+.quiz-options .option:hover {
+  border-color: var(--accent);
+  background: rgba(179, 139, 109, 0.04);
+}
+
+.quiz-options .option.selected {
+  border-color: var(--accent);
+  background: rgba(179, 139, 109, 0.08);
+}
+
+.quiz-options .option .radio {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: 0.2s;
+}
+
+.quiz-options .option.selected .radio {
+  border-color: var(--accent);
+}
+
+.quiz-options .option .radio .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  transform: scale(0);
+  transition: 0.2s;
+}
+
+.quiz-options .option.selected .radio .dot {
+  transform: scale(1);
+}
+
+.quiz-options .option .option-text {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+/* ===== RED WARNING STATE ===== */
+.quiz-options .option .radio.warning {
+  border-color: #e74c3c !important;
+  animation: shake 0.4s ease;
+}
+
+.quiz-options .option .radio.warning .dot {
+  background: #e74c3c !important;
+  transform: scale(1) !important;
+}
+
+.quiz-options .option.warning-highlight {
+  border-color: #e74c3c !important;
+  background: rgba(231, 76, 60, 0.05) !important;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+/* ===== QUIZ NAVIGATION ===== */
+.quiz-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.quiz-nav .btn-prev {
+  background: var(--text-primary);
   color: #fff;
   border: none;
   padding: 0.6rem 2rem;
@@ -667,21 +686,51 @@
   font-family: 'Inter', sans-serif;
 }
 
-.quiz-nav .btn-next:hover {
-  background: #ffffff !important;
-  color: #2d2a24 !important;
+.quiz-nav .btn-prev:hover:not(:disabled) {
+  background: var(--accent) !important;
+  color: #fff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(179, 139, 109, 0.4);
+}
+
+.quiz-nav .btn-prev:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+  background: var(--text-primary);
+  color: #fff;
+}
+
+.quiz-nav .btn-next {
+  background: var(--text-primary);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 2rem;
+  border-radius: 60px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: 0.25s;
+  font-family: 'Inter', sans-serif;
+}
+
+.quiz-nav .btn-next:hover:not(:disabled) {
+  background: var(--accent) !important;
+  color: #fff !important;
   transform: translateY(-2px);
   box-shadow: 0 4px 15px rgba(179, 139, 109, 0.4);
 }
 
 .quiz-nav .btn-next:disabled {
-  opacity: 0.4;
+  opacity: 0.65;
   cursor: not-allowed;
   transform: none;
+  background: var(--text-primary);
+  color: #fff;
 }
 
 .quiz-nav .btn-submit {
-  background: var(--accent);
+  background: var(--text-primary);
   color: #fff;
   border: none;
   padding: 0.6rem 2rem;
@@ -696,110 +745,111 @@
   gap: 8px;
 }
 
-.quiz-nav .btn-submit:hover {
-  background: #ffffff !important;
-  color: #2d2a24 !important;
+.quiz-nav .btn-submit:hover:not(:disabled) {
+  background: var(--accent) !important;
+  color: #fff !important;
   transform: translateY(-2px);
   box-shadow: 0 4px 15px rgba(179, 139, 109, 0.4);
 }
 
 .quiz-nav .btn-submit:disabled {
-  opacity: 0.4;
+  opacity: 0.65;
   cursor: not-allowed;
   transform: none;
+  background: var(--text-primary);
+  color: #fff;
 }
 
-    /* Quiz Form - Responsive */
-    @media (max-width: 767px) {
-      .quiz-form-section {
-        padding: 1.5rem 0 3rem;
-      }
+/* Quiz Form - Responsive */
+@media (max-width: 767px) {
+  .quiz-form-section {
+    padding: 1.5rem 0 3rem;
+  }
 
-      .quiz-container {
-        padding: 1.5rem 1.2rem;
-        border-radius: 18px;
-      }
+  .quiz-container {
+    padding: 1.5rem 1.2rem;
+    border-radius: 18px;
+  }
 
-      .quiz-question .question-text {
-        font-size: 1.1rem;
-      }
+  .quiz-question .question-text {
+    font-size: 1.1rem;
+  }
 
-      .quiz-options .option {
-        padding: 0.8rem 1rem;
-      }
+  .quiz-options .option {
+    padding: 0.8rem 1rem;
+  }
 
-      .quiz-options .option .option-text {
-        font-size: 0.85rem;
-      }
+  .quiz-options .option .option-text {
+    font-size: 0.85rem;
+  }
 
-      .quiz-options .option .radio {
-        width: 18px;
-        height: 18px;
-      }
+  .quiz-options .option .radio {
+    width: 18px;
+    height: 18px;
+  }
 
-      .quiz-options .option .radio .dot {
-        width: 8px;
-        height: 8px;
-      }
+  .quiz-options .option .radio .dot {
+    width: 8px;
+    height: 8px;
+  }
 
-      .quiz-nav {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
+  .quiz-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 
-      .quiz-nav .btn-prev,
-      .quiz-nav .btn-next,
-      .quiz-nav .btn-submit {
-        padding: 0.5rem 1.5rem;
-        font-size: 0.8rem;
-      }
+  .quiz-nav .btn-prev,
+  .quiz-nav .btn-next,
+  .quiz-nav .btn-submit {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.8rem;
+  }
 
-      .quiz-progress {
-        margin-bottom: 1.5rem;
-      }
+  .quiz-progress {
+    margin-bottom: 1.5rem;
+  }
 
-      .quiz-question .question-number {
-        font-size: 0.7rem;
-      }
-    }
+  .quiz-question .question-number {
+    font-size: 0.7rem;
+  }
+}
 
-    @media (max-width: 480px) {
-      .quiz-container {
-        padding: 1.2rem 1rem;
-        border-radius: 16px;
-      }
+@media (max-width: 480px) {
+  .quiz-container {
+    padding: 1.2rem 1rem;
+    border-radius: 16px;
+  }
 
-      .quiz-question .question-text {
-        font-size: 1rem;
-      }
+  .quiz-question .question-text {
+    font-size: 1rem;
+  }
 
-      .quiz-options .option {
-        padding: 0.6rem 0.8rem;
-        gap: 0.6rem;
-      }
+  .quiz-options .option {
+    padding: 0.6rem 0.8rem;
+    gap: 0.6rem;
+  }
 
-      .quiz-options .option .option-text {
-        font-size: 0.8rem;
-      }
+  .quiz-options .option .option-text {
+    font-size: 0.8rem;
+  }
 
-      .quiz-options .option .radio {
-        width: 16px;
-        height: 16px;
-      }
+  .quiz-options .option .radio {
+    width: 16px;
+    height: 16px;
+  }
 
-      .quiz-options .option .radio .dot {
-        width: 7px;
-        height: 7px;
-      }
+  .quiz-options .option .radio .dot {
+    width: 7px;
+    height: 7px;
+  }
 
-      .quiz-nav .btn-prev,
-      .quiz-nav .btn-next,
-      .quiz-nav .btn-submit {
-        font-size: 0.75rem;
-        padding: 0.4rem 1.2rem;
-      }
-    }
-
+  .quiz-nav .btn-prev,
+  .quiz-nav .btn-next,
+  .quiz-nav .btn-submit {
+    font-size: 0.75rem;
+    padding: 0.4rem 1.2rem;
+  }
+}
     /* ============================================================ */
     /* ===== SECTION 3: RESULTS ===== */
     /* ============================================================ */
@@ -1925,36 +1975,39 @@
   </section>
 
   <!-- ===== SECTION 2: QUIZ FORM ===== -->
-  <section class="quiz-form-section" id="quizSection">
-    <div class="container">
-      <div class="quiz-container" id="quizContainer">
-        <!-- Progress Bar -->
-        <div class="quiz-progress" id="progressBar">
-          <div class="progress-step active"></div>
-          <div class="progress-step"></div>
-          <div class="progress-step"></div>
-          <div class="progress-step"></div>
-          <div class="progress-step"></div>
-        </div>
+<section class="quiz-form-section" id="quizSection">
+  <div class="container">
+    <div class="quiz-container" id="quizContainer">
+      <!-- Progress Bar -->
+      <div class="quiz-progress" id="progressBar">
+        <div class="progress-step active"></div>
+        <div class="progress-step"></div>
+        <div class="progress-step"></div>
+        <div class="progress-step"></div>
+        <div class="progress-step"></div>
+      </div>
 
-        <!-- Question Area -->
-        <div id="questionArea">
-          <div class="quiz-question">
-            <div class="question-number" id="questionNumber">Question 1 of 5</div>
-            <div class="question-text" id="questionText">What is your skin type?</div>
-          </div>
-          <div class="quiz-options" id="optionsContainer"></div>
+      <!-- Question Area -->
+      <div id="questionArea">
+        <div class="quiz-question">
+          <div class="question-number" id="questionNumber">Question 1 of 5</div>
+          <div class="question-text" id="questionText">What is your skin type?</div>
         </div>
+        <div class="quiz-warning-message" id="warningMessage">
+          <i class="fas fa-exclamation-circle"></i> Please select an option to continue.
+        </div>
+        <div class="quiz-options" id="optionsContainer"></div>
+      </div>
 
-        <!-- Navigation -->
-        <div class="quiz-nav">
-          <button class="btn-prev" id="prevBtn" disabled>← Back</button>
-          <button class="btn-next" id="nextBtn">Next →</button>
-          <button class="btn-submit" id="submitBtn" style="display:none;">✨ See Results</button>
-        </div>
+      <!-- Navigation -->
+      <div class="quiz-nav">
+        <button class="btn-prev" id="prevBtn" disabled>← Back</button>
+        <button class="btn-next" id="nextBtn">Next →</button>
+        <button class="btn-submit" id="submitBtn" style="display:none;">✨ See Results</button>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- ===== SECTION 3: RESULTS ===== -->
   <section class="results-section" id="resultsSection">
@@ -2031,375 +2084,417 @@
   </footer>
 
   <!-- ===== JAVASCRIPT ===== -->
-  <script>
-    // ===== DROPDOWN TOGGLE =====
-    let dropdownOpen = false;
+ <script>
+// ===== DROPDOWN TOGGLE =====
+let dropdownOpen = false;
 
-    function toggleDropdown(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      const content = document.getElementById('dropdownContent');
-      dropdownOpen = !dropdownOpen;
-      content.classList.toggle('show', dropdownOpen);
+function toggleDropdown(e) {
+  e.preventDefault();
+  e.stopPropagation();
+  const content = document.getElementById('dropdownContent');
+  dropdownOpen = !dropdownOpen;
+  content.classList.toggle('show', dropdownOpen);
+}
+
+document.addEventListener('click', function(e) {
+  const dropdown = document.getElementById('homeDropdown');
+  if (!dropdown.contains(e.target)) {
+    document.getElementById('dropdownContent').classList.remove('show');
+    dropdownOpen = false;
+  }
+});
+
+// ===== THEME TOGGLE =====
+let darkMode = false;
+
+function toggleTheme() {
+  darkMode = !darkMode;
+  const themeIcon = document.getElementById('themeToggle').querySelector('i');
+  const mobileThemeIcon = document.getElementById('mobileThemeIcon');
+  const mobileThemeLabel = document.getElementById('mobileThemeLabel');
+
+  if (darkMode) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    themeIcon.className = 'fas fa-sun';
+    if (mobileThemeIcon) mobileThemeIcon.className = 'fas fa-sun';
+    if (mobileThemeLabel) mobileThemeLabel.textContent = 'Light';
+  } else {
+    document.documentElement.removeAttribute('data-theme');
+    themeIcon.className = 'fas fa-moon';
+    if (mobileThemeIcon) mobileThemeIcon.className = 'fas fa-moon';
+    if (mobileThemeLabel) mobileThemeLabel.textContent = 'Dark';
+  }
+}
+
+function toggleMobileTheme() {
+  toggleTheme();
+}
+
+// ===== RTL TOGGLE =====
+let rtlMode = false;
+
+function toggleRTL() {
+  rtlMode = !rtlMode;
+  const rtlBtn = document.getElementById('rtlBtn');
+  const mobileRtlLabel = document.getElementById('mobileRtlLabel');
+
+  if (rtlMode) {
+    document.documentElement.setAttribute('dir', 'rtl');
+    if (rtlBtn) rtlBtn.textContent = 'LTR';
+    if (mobileRtlLabel) mobileRtlLabel.textContent = 'LTR';
+  } else {
+    document.documentElement.removeAttribute('dir');
+    if (rtlBtn) rtlBtn.textContent = 'RTL';
+    if (mobileRtlLabel) mobileRtlLabel.textContent = 'RTL';
+  }
+}
+
+function toggleMobileRTL() {
+  toggleRTL();
+}
+
+// ===== MOBILE MENU =====
+function toggleMenu(open) {
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  const overlay = document.getElementById('navOverlay');
+
+  if (open) {
+    hamburger.classList.add('active');
+    mobileNav.classList.add('active');
+    if (overlay) overlay.classList.add('active');
+    document.body.classList.add('menu-open');
+  } else {
+    hamburger.classList.remove('active');
+    mobileNav.classList.remove('active');
+    if (overlay) overlay.classList.remove('active');
+    document.body.classList.remove('menu-open');
+  }
+}
+
+function closeMenu() {
+  toggleMenu(false);
+}
+
+document.getElementById('hamburger').addEventListener('click', function(e) {
+  e.stopPropagation();
+  const isOpen = document.getElementById('mobileNav').classList.contains('active');
+  toggleMenu(!isOpen);
+});
+
+document.getElementById('navOverlay').addEventListener('click', closeMenu);
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    closeMenu();
+    document.querySelectorAll('.dropdown-content.show').forEach(d => d.classList.remove('show'));
+  }
+});
+
+document.querySelectorAll('.mobile-nav-drawer ul li a').forEach(link => {
+  link.addEventListener('click', function() {
+    if (!this.classList.contains('dropdown-toggle')) {
+      closeMenu();
     }
+  });
+});
 
-    document.addEventListener('click', function(e) {
-      const dropdown = document.getElementById('homeDropdown');
-      if (!dropdown.contains(e.target)) {
-        document.getElementById('dropdownContent').classList.remove('show');
-        dropdownOpen = false;
-      }
+// ===== SCROLL TO TOP =====
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ===== QUIZ DATA =====
+const quizData = [
+  {
+    question: "What is your skin type?",
+    options: [
+      "Oily - Shiny with visible pores",
+      "Dry - Tight, flaky, or rough",
+      "Combination - Oily T-zone, dry cheeks",
+      "Sensitive - Easily irritated or red"
+    ]
+  },
+  {
+    question: "What are your main skin concerns?",
+    options: [
+      "Acne & breakouts",
+      "Fine lines & wrinkles",
+      "Dark spots & uneven tone",
+      "Redness & sensitivity"
+    ]
+  },
+  {
+    question: "What is your primary skincare goal?",
+    options: [
+      "Hydration & moisture",
+      "Brightening & radiance",
+      "Anti-aging & firming",
+      "Soothing & calming"
+    ]
+  },
+  {
+    question: "How does your skin feel after cleansing?",
+    options: [
+      "Tight and dry",
+      "Smooth and balanced",
+      "Shiny and oily",
+      "Irritated or red"
+    ]
+  },
+  {
+    question: "What is your daily sunscreen habit?",
+    options: [
+      "Always apply SPF 50",
+      "Apply SPF sometimes",
+      "Only when it's sunny",
+      "I don't use sunscreen"
+    ]
+  }
+];
+
+const resultData = {
+  oily: {
+    title: "✨ Balanced & Clear Skin",
+    desc: "Based on your answers, you have oily skin. We recommend oil-control products with salicylic acid and niacinamide to keep your skin fresh and shine-free.",
+    tags: ["Oil-Control", "Mattifying", "Pore Minimizing"]
+  },
+  dry: {
+    title: "💧 Deeply Nourished Skin",
+    desc: "Based on your answers, you have dry skin. We recommend hydrating products with hyaluronic acid and ceramides to restore moisture and repair your skin barrier.",
+    tags: ["Deep Hydration", "Barrier Repair", "Nourishing"]
+  },
+  combination: {
+    title: "🌸 Balanced & Harmonized Skin",
+    desc: "Based on your answers, you have combination skin. We recommend gentle, balanced products that hydrate dry areas while controlling oil in the T-zone.",
+    tags: ["Balanced Care", "Gentle Formulas", "Harmonizing"]
+  },
+  sensitive: {
+    title: "🌿 Calm & Soothed Skin",
+    desc: "Based on your answers, you have sensitive skin. We recommend soothing, fragrance-free products with centella asiatica and ceramides to calm and protect.",
+    tags: ["Soothing", "Fragrance-Free", "Calming"]
+  }
+};
+
+let currentQuestion = 0;
+let answers = [];
+let selectedOption = null;
+
+// ===== INITIALIZE QUIZ =====
+function initQuiz() {
+  currentQuestion = 0;
+  answers = [];
+  selectedOption = null;
+  document.getElementById('resultsSection').classList.remove('show');
+  document.getElementById('quizSection').style.display = 'block';
+  renderQuestion();
+  updateProgress();
+}
+
+// ===== RENDER QUESTION =====
+function renderQuestion() {
+  const data = quizData[currentQuestion];
+  document.getElementById('questionNumber').textContent = `Question ${currentQuestion + 1} of ${quizData.length}`;
+  document.getElementById('questionText').textContent = data.question;
+
+  const optionsContainer = document.getElementById('optionsContainer');
+  optionsContainer.innerHTML = '';
+
+  data.options.forEach((option, index) => {
+    const div = document.createElement('div');
+    div.className = 'option';
+    if (selectedOption === index) {
+      div.classList.add('selected');
+    }
+    div.innerHTML = `
+      <div class="radio"><div class="dot"></div></div>
+      <span class="option-text">${option}</span>
+    `;
+    div.addEventListener('click', () => selectOption(index));
+    optionsContainer.appendChild(div);
+  });
+
+  // Hide warning on new question
+  document.getElementById('warningMessage').classList.remove('show');
+
+  // Update buttons
+  document.getElementById('prevBtn').disabled = currentQuestion === 0;
+  
+  if (currentQuestion === quizData.length - 1) {
+    document.getElementById('nextBtn').style.display = 'none';
+    document.getElementById('submitBtn').style.display = 'inline-flex';
+    document.getElementById('submitBtn').disabled = selectedOption === null;
+  } else {
+    document.getElementById('nextBtn').style.display = 'inline-flex';
+    document.getElementById('submitBtn').style.display = 'none';
+    document.getElementById('nextBtn').disabled = selectedOption === null;
+  }
+}
+
+// ===== SELECT OPTION =====
+function selectOption(index) {
+  selectedOption = index;
+  answers[currentQuestion] = index;
+
+  // Remove warning
+  document.getElementById('warningMessage').classList.remove('show');
+  document.querySelectorAll('.option').forEach(opt => {
+    opt.classList.remove('warning-highlight');
+    const radio = opt.querySelector('.radio');
+    if (radio) radio.classList.remove('warning');
+  });
+
+  // Update UI
+  const options = document.querySelectorAll('.option');
+  options.forEach((opt, i) => {
+    opt.classList.toggle('selected', i === index);
+  });
+
+  // Enable/disable buttons
+  if (currentQuestion === quizData.length - 1) {
+    document.getElementById('submitBtn').disabled = false;
+  } else {
+    document.getElementById('nextBtn').disabled = false;
+  }
+}
+
+// ===== SHOW WARNING =====
+function showWarning() {
+  const warning = document.getElementById('warningMessage');
+  const options = document.querySelectorAll('.option');
+  
+  warning.classList.add('show');
+  
+  options.forEach(opt => {
+    opt.classList.add('warning-highlight');
+    const radio = opt.querySelector('.radio');
+    if (radio) radio.classList.add('warning');
+  });
+  
+  // Remove warning after 2 seconds
+  setTimeout(() => {
+    warning.classList.remove('show');
+    options.forEach(opt => {
+      opt.classList.remove('warning-highlight');
+      const radio = opt.querySelector('.radio');
+      if (radio) radio.classList.remove('warning');
     });
+  }, 2000);
+}
 
-    // ===== THEME TOGGLE =====
-    let darkMode = false;
+// ===== NEXT QUESTION =====
+function nextQuestion() {
+  if (selectedOption === null) {
+    showWarning();
+    return;
+  }
+  
+  if (currentQuestion < quizData.length - 1) {
+    currentQuestion++;
+    selectedOption = answers[currentQuestion] !== undefined ? answers[currentQuestion] : null;
+    renderQuestion();
+    updateProgress();
+  }
+}
 
-    function toggleTheme() {
-      darkMode = !darkMode;
-      const themeIcon = document.getElementById('themeToggle').querySelector('i');
-      const mobileThemeIcon = document.getElementById('mobileThemeIcon');
-      const mobileThemeLabel = document.getElementById('mobileThemeLabel');
+// ===== PREVIOUS QUESTION =====
+function previousQuestion() {
+  if (currentQuestion > 0) {
+    currentQuestion--;
+    selectedOption = answers[currentQuestion] !== undefined ? answers[currentQuestion] : null;
+    renderQuestion();
+    updateProgress();
+  }
+}
 
-      if (darkMode) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        themeIcon.className = 'fas fa-sun';
-        if (mobileThemeIcon) mobileThemeIcon.className = 'fas fa-sun';
-        if (mobileThemeLabel) mobileThemeLabel.textContent = 'Light';
-      } else {
-        document.documentElement.removeAttribute('data-theme');
-        themeIcon.className = 'fas fa-moon';
-        if (mobileThemeIcon) mobileThemeIcon.className = 'fas fa-moon';
-        if (mobileThemeLabel) mobileThemeLabel.textContent = 'Dark';
+// ===== UPDATE PROGRESS =====
+function updateProgress() {
+  const steps = document.querySelectorAll('.progress-step');
+  steps.forEach((step, i) => {
+    step.classList.remove('active', 'completed');
+    if (i < currentQuestion) {
+      step.classList.add('completed');
+    } else if (i === currentQuestion) {
+      step.classList.add('active');
+    }
+  });
+}
+
+// ===== SUBMIT QUIZ =====
+function submitQuiz() {
+  if (selectedOption === null) {
+    showWarning();
+    return;
+  }
+
+  // Determine skin type based on answers
+  let skinType = 'combination';
+  const firstAnswer = answers[0];
+  
+  if (firstAnswer === 0) skinType = 'oily';
+  else if (firstAnswer === 1) skinType = 'dry';
+  else if (firstAnswer === 2) skinType = 'combination';
+  else if (firstAnswer === 3) skinType = 'sensitive';
+
+  const result = resultData[skinType];
+  
+  document.getElementById('resultTitle').textContent = result.title;
+  document.getElementById('resultDesc').textContent = result.desc;
+  
+  const tagsContainer = document.getElementById('resultTags');
+  tagsContainer.innerHTML = '';
+  result.tags.forEach(tag => {
+    const span = document.createElement('span');
+    span.className = 'tag';
+    span.textContent = tag;
+    tagsContainer.appendChild(span);
+  });
+
+  document.getElementById('quizSection').style.display = 'none';
+  document.getElementById('resultsSection').classList.add('show');
+  document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ===== RETAKE QUIZ =====
+function retakeQuiz() {
+  document.getElementById('resultsSection').classList.remove('show');
+  document.getElementById('quizSection').style.display = 'block';
+  initQuiz();
+  document.getElementById('quizSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ===== EVENT LISTENERS =====
+document.getElementById('nextBtn').addEventListener('click', nextQuestion);
+document.getElementById('prevBtn').addEventListener('click', previousQuestion);
+document.getElementById('submitBtn').addEventListener('click', submitQuiz);
+
+// ===== KEYBOARD NAVIGATION =====
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') {
+    if (currentQuestion === quizData.length - 1) {
+      if (!document.getElementById('submitBtn').disabled) {
+        submitQuiz();
+      }
+    } else {
+      if (!document.getElementById('nextBtn').disabled) {
+        nextQuestion();
       }
     }
+  }
+});
 
-    function toggleMobileTheme() {
-      toggleTheme();
-    }
-
-    // ===== RTL TOGGLE =====
-    let rtlMode = false;
-
-    function toggleRTL() {
-      rtlMode = !rtlMode;
-      const rtlBtn = document.getElementById('rtlBtn');
-      const mobileRtlLabel = document.getElementById('mobileRtlLabel');
-
-      if (rtlMode) {
-        document.documentElement.setAttribute('dir', 'rtl');
-        if (rtlBtn) rtlBtn.textContent = 'LTR';
-        if (mobileRtlLabel) mobileRtlLabel.textContent = 'LTR';
-      } else {
-        document.documentElement.removeAttribute('dir');
-        if (rtlBtn) rtlBtn.textContent = 'RTL';
-        if (mobileRtlLabel) mobileRtlLabel.textContent = 'RTL';
-      }
-    }
-
-    function toggleMobileRTL() {
-      toggleRTL();
-    }
-
-    // ===== MOBILE MENU =====
-    function toggleMenu(open) {
-      const hamburger = document.getElementById('hamburger');
-      const mobileNav = document.getElementById('mobileNav');
-      const overlay = document.getElementById('navOverlay');
-
-      if (open) {
-        hamburger.classList.add('active');
-        mobileNav.classList.add('active');
-        if (overlay) overlay.classList.add('active');
-        document.body.classList.add('menu-open');
-      } else {
-        hamburger.classList.remove('active');
-        mobileNav.classList.remove('active');
-        if (overlay) overlay.classList.remove('active');
-        document.body.classList.remove('menu-open');
-      }
-    }
-
-    function closeMenu() {
-      toggleMenu(false);
-    }
-
-    document.getElementById('hamburger').addEventListener('click', function(e) {
-      e.stopPropagation();
-      const isOpen = document.getElementById('mobileNav').classList.contains('active');
-      toggleMenu(!isOpen);
-    });
-
-    document.getElementById('navOverlay').addEventListener('click', closeMenu);
-
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        closeMenu();
-        document.querySelectorAll('.dropdown-content.show').forEach(d => d.classList.remove('show'));
-      }
-    });
-
-    document.querySelectorAll('.mobile-nav-drawer ul li a').forEach(link => {
-      link.addEventListener('click', function() {
-        if (!this.classList.contains('dropdown-toggle')) {
-          closeMenu();
-        }
-      });
-    });
-
-    // ===== SCROLL TO TOP =====
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    // ===== QUIZ DATA =====
-    const quizData = [
-      {
-        question: "What is your skin type?",
-        options: [
-          "Oily - Shiny with visible pores",
-          "Dry - Tight, flaky, or rough",
-          "Combination - Oily T-zone, dry cheeks",
-          "Sensitive - Easily irritated or red"
-        ]
-      },
-      {
-        question: "What are your main skin concerns?",
-        options: [
-          "Acne & breakouts",
-          "Fine lines & wrinkles",
-          "Dark spots & uneven tone",
-          "Redness & sensitivity"
-        ]
-      },
-      {
-        question: "What is your primary skincare goal?",
-        options: [
-          "Hydration & moisture",
-          "Brightening & radiance",
-          "Anti-aging & firming",
-          "Soothing & calming"
-        ]
-      },
-      {
-        question: "How does your skin feel after cleansing?",
-        options: [
-          "Tight and dry",
-          "Smooth and balanced",
-          "Shiny and oily",
-          "Irritated or red"
-        ]
-      },
-      {
-        question: "What is your daily sunscreen habit?",
-        options: [
-          "Always apply SPF 50",
-          "Apply SPF sometimes",
-          "Only when it's sunny",
-          "I don't use sunscreen"
-        ]
-      }
-    ];
-
-    const resultData = {
-      oily: {
-        title: "✨ Balanced & Clear Skin",
-        desc: "Based on your answers, you have oily skin. We recommend oil-control products with salicylic acid and niacinamide to keep your skin fresh and shine-free.",
-        tags: ["Oil-Control", "Mattifying", "Pore Minimizing"]
-      },
-      dry: {
-        title: "💧 Deeply Nourished Skin",
-        desc: "Based on your answers, you have dry skin. We recommend hydrating products with hyaluronic acid and ceramides to restore moisture and repair your skin barrier.",
-        tags: ["Deep Hydration", "Barrier Repair", "Nourishing"]
-      },
-      combination: {
-        title: "🌸 Balanced & Harmonized Skin",
-        desc: "Based on your answers, you have combination skin. We recommend gentle, balanced products that hydrate dry areas while controlling oil in the T-zone.",
-        tags: ["Balanced Care", "Gentle Formulas", "Harmonizing"]
-      },
-      sensitive: {
-        title: "🌿 Calm & Soothed Skin",
-        desc: "Based on your answers, you have sensitive skin. We recommend soothing, fragrance-free products with centella asiatica and ceramides to calm and protect.",
-        tags: ["Soothing", "Fragrance-Free", "Calming"]
-      }
-    };
-
-    let currentQuestion = 0;
-    let answers = [];
-    let selectedOption = null;
-
-    // ===== INITIALIZE QUIZ =====
-    function initQuiz() {
-      currentQuestion = 0;
-      answers = [];
-      selectedOption = null;
-      document.getElementById('resultsSection').classList.remove('show');
-      document.getElementById('quizSection').style.display = 'block';
-      renderQuestion();
-      updateProgress();
-    }
-
-    // ===== RENDER QUESTION =====
-    function renderQuestion() {
-      const data = quizData[currentQuestion];
-      document.getElementById('questionNumber').textContent = `Question ${currentQuestion + 1} of ${quizData.length}`;
-      document.getElementById('questionText').textContent = data.question;
-
-      const optionsContainer = document.getElementById('optionsContainer');
-      optionsContainer.innerHTML = '';
-
-      data.options.forEach((option, index) => {
-        const div = document.createElement('div');
-        div.className = 'option';
-        if (selectedOption === index) {
-          div.classList.add('selected');
-        }
-        div.innerHTML = `
-          <div class="radio"><div class="dot"></div></div>
-          <span class="option-text">${option}</span>
-        `;
-        div.addEventListener('click', () => selectOption(index));
-        optionsContainer.appendChild(div);
-      });
-
-      // Update buttons
-      document.getElementById('prevBtn').disabled = currentQuestion === 0;
-      
-      if (currentQuestion === quizData.length - 1) {
-        document.getElementById('nextBtn').style.display = 'none';
-        document.getElementById('submitBtn').style.display = 'inline-flex';
-        document.getElementById('submitBtn').disabled = selectedOption === null;
-      } else {
-        document.getElementById('nextBtn').style.display = 'inline-flex';
-        document.getElementById('submitBtn').style.display = 'none';
-        document.getElementById('nextBtn').disabled = selectedOption === null;
-      }
-    }
-
-    // ===== SELECT OPTION =====
-    function selectOption(index) {
-      selectedOption = index;
-      answers[currentQuestion] = index;
-
-      // Update UI
-      const options = document.querySelectorAll('.option');
-      options.forEach((opt, i) => {
-        opt.classList.toggle('selected', i === index);
-      });
-
-      // Enable/disable buttons
-      if (currentQuestion === quizData.length - 1) {
-        document.getElementById('submitBtn').disabled = false;
-      } else {
-        document.getElementById('nextBtn').disabled = false;
-      }
-    }
-
-    // ===== NEXT QUESTION =====
-    function nextQuestion() {
-      if (selectedOption === null) return;
-      
-      if (currentQuestion < quizData.length - 1) {
-        currentQuestion++;
-        selectedOption = answers[currentQuestion] !== undefined ? answers[currentQuestion] : null;
-        renderQuestion();
-        updateProgress();
-      }
-    }
-
-    // ===== PREVIOUS QUESTION =====
-    function previousQuestion() {
-      if (currentQuestion > 0) {
-        currentQuestion--;
-        selectedOption = answers[currentQuestion] !== undefined ? answers[currentQuestion] : null;
-        renderQuestion();
-        updateProgress();
-      }
-    }
-
-    // ===== UPDATE PROGRESS =====
-    function updateProgress() {
-      const steps = document.querySelectorAll('.progress-step');
-      steps.forEach((step, i) => {
-        step.classList.remove('active', 'completed');
-        if (i < currentQuestion) {
-          step.classList.add('completed');
-        } else if (i === currentQuestion) {
-          step.classList.add('active');
-        }
-      });
-    }
-
-    // ===== SUBMIT QUIZ =====
-    function submitQuiz() {
-      if (selectedOption === null) return;
-
-      // Determine skin type based on answers
-      let skinType = 'combination';
-      const firstAnswer = answers[0];
-      
-      if (firstAnswer === 0) skinType = 'oily';
-      else if (firstAnswer === 1) skinType = 'dry';
-      else if (firstAnswer === 2) skinType = 'combination';
-      else if (firstAnswer === 3) skinType = 'sensitive';
-
-      const result = resultData[skinType];
-      
-      document.getElementById('resultTitle').textContent = result.title;
-      document.getElementById('resultDesc').textContent = result.desc;
-      
-      const tagsContainer = document.getElementById('resultTags');
-      tagsContainer.innerHTML = '';
-      result.tags.forEach(tag => {
-        const span = document.createElement('span');
-        span.className = 'tag';
-        span.textContent = tag;
-        tagsContainer.appendChild(span);
-      });
-
-      document.getElementById('quizSection').style.display = 'none';
-      document.getElementById('resultsSection').classList.add('show');
-      document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-
-    // ===== RETAKE QUIZ =====
-    function retakeQuiz() {
-      document.getElementById('resultsSection').classList.remove('show');
-      document.getElementById('quizSection').style.display = 'block';
-      initQuiz();
-      document.getElementById('quizSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-
-    // ===== EVENT LISTENERS =====
-    document.getElementById('nextBtn').addEventListener('click', nextQuestion);
-    document.getElementById('prevBtn').addEventListener('click', previousQuestion);
-    document.getElementById('submitBtn').addEventListener('click', submitQuiz);
-
-    // ===== KEYBOARD NAVIGATION =====
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter') {
-        if (currentQuestion === quizData.length - 1) {
-          if (!document.getElementById('submitBtn').disabled) {
-            submitQuiz();
-          }
-        } else {
-          if (!document.getElementById('nextBtn').disabled) {
-            nextQuestion();
-          }
-        }
-      }
-    });
-
-    // ===== RUN ON LOAD =====
-    window.addEventListener('load', function() {
-      if (document.documentElement.getAttribute('data-theme') === 'dark') {
-        document.getElementById('themeToggle').querySelector('i').className = 'fas fa-sun';
-        const mi = document.getElementById('mobileThemeIcon');
-        const ml = document.getElementById('mobileThemeLabel');
-        if (mi) mi.className = 'fas fa-sun';
-        if (ml) ml.textContent = 'Light';
-      }
-      initQuiz();
-    });
+// ===== RUN ON LOAD =====
+window.addEventListener('load', function() {
+  if (document.documentElement.getAttribute('data-theme') === 'dark') {
+    document.getElementById('themeToggle').querySelector('i').className = 'fas fa-sun';
+    const mi = document.getElementById('mobileThemeIcon');
+    const ml = document.getElementById('mobileThemeLabel');
+    if (mi) mi.className = 'fas fa-sun';
+    if (ml) ml.textContent = 'Light';
+  }
+  initQuiz();
+});
+</script>
   </script>
 </body>
 </html>
