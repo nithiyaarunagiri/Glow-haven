@@ -673,9 +673,10 @@
   gap: 1rem;
 }
 
+/* Back button - BLACK in light mode */
 .quiz-nav .btn-prev {
-  background: var(--text-primary);
-  color: #fff;
+  background: #000000 !important;
+  color: #ffffff !important;
   border: none;
   padding: 0.6rem 2rem;
   border-radius: 60px;
@@ -688,7 +689,7 @@
 
 .quiz-nav .btn-prev:hover:not(:disabled) {
   background: var(--accent) !important;
-  color: #fff !important;
+  color: #ffffff !important;
   transform: translateY(-2px);
   box-shadow: 0 4px 15px rgba(179, 139, 109, 0.4);
 }
@@ -697,13 +698,14 @@
   opacity: 0.65;
   cursor: not-allowed;
   transform: none;
-  background: var(--text-primary);
-  color: #fff;
+  background: #000000 !important;
+  color: #ffffff !important;
 }
 
+/* Next button - BLACK in light mode */
 .quiz-nav .btn-next {
-  background: var(--text-primary);
-  color: #fff;
+  background: #000000 !important;
+  color: #ffffff !important;
   border: none;
   padding: 0.6rem 2rem;
   border-radius: 60px;
@@ -716,7 +718,7 @@
 
 .quiz-nav .btn-next:hover:not(:disabled) {
   background: var(--accent) !important;
-  color: #fff !important;
+  color: #ffffff !important;
   transform: translateY(-2px);
   box-shadow: 0 4px 15px rgba(179, 139, 109, 0.4);
 }
@@ -725,13 +727,14 @@
   opacity: 0.65;
   cursor: not-allowed;
   transform: none;
-  background: var(--text-primary);
-  color: #fff;
+  background: #000000 !important;
+  color: #ffffff !important;
 }
 
+/* Submit button - BLACK in light mode */
 .quiz-nav .btn-submit {
-  background: var(--text-primary);
-  color: #fff;
+  background: #000000 !important;
+  color: #ffffff !important;
   border: none;
   padding: 0.6rem 2rem;
   border-radius: 60px;
@@ -747,7 +750,7 @@
 
 .quiz-nav .btn-submit:hover:not(:disabled) {
   background: var(--accent) !important;
-  color: #fff !important;
+  color: #ffffff !important;
   transform: translateY(-2px);
   box-shadow: 0 4px 15px rgba(179, 139, 109, 0.4);
 }
@@ -756,8 +759,31 @@
   opacity: 0.65;
   cursor: not-allowed;
   transform: none;
-  background: var(--text-primary);
-  color: #fff;
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* ===== DARK MODE FIX: Buttons become accent colored ===== */
+[data-theme="dark"] .quiz-nav .btn-prev,
+[data-theme="dark"] .quiz-nav .btn-next,
+[data-theme="dark"] .quiz-nav .btn-submit {
+  background: var(--accent) !important;
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .quiz-nav .btn-prev:hover:not(:disabled),
+[data-theme="dark"] .quiz-nav .btn-next:hover:not(:disabled),
+[data-theme="dark"] .quiz-nav .btn-submit:hover:not(:disabled) {
+  background: #ffffff !important;
+  color: #2d2a24 !important;
+}
+
+[data-theme="dark"] .quiz-nav .btn-prev:disabled,
+[data-theme="dark"] .quiz-nav .btn-next:disabled,
+[data-theme="dark"] .quiz-nav .btn-submit:disabled {
+  background: var(--accent) !important;
+  color: #ffffff !important;
+  opacity: 0.65;
 }
 
 /* Quiz Form - Responsive */
